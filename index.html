@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#030305] text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SuperNayak Studio | Game Dev & Elite Digital Craftsmanship</title>
+    <meta name="description" content="SuperNayak Studio is a premier game development and creative digital agency offering world-class web design, 3D art, video editing, social media management, and QA services.">
+    <meta name="keywords" content="game development studio, creative digital studio, website design and development, freelance digital services, voiceover, social media management, 3D assets, Krodh Room">
+    <meta name="author" content="Sahil Mandavkar">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#030305',
+                            card: '#0a0a12',
+                            purple: '#8B5CF6',
+                            pink: '#EC4899',
+                            cyan: '#06B6D4',
+                            neon: '#39FF14',
+                            gold: '#FFD700'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        /* Base & Scrollbar */
+        body { overflow-x: hidden; color: #F1F5F9; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030305; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #8B5CF6, #06B6D4); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #EC4899; }
+
+        p { color: #E2E8F0; line-height: 1.8; font-size: 1.05rem; }
+        
+        /* Dynamic Background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(10, 10, 18, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+        }
+
+        .hover-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.4), 0 0 45px rgba(6, 182, 212, 0.2);
+            background: rgba(20, 20, 30, 0.8);
+        }
+
+        /* Interactive Buttons */
+        .btn-magnetic {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1;
+            background-color: transparent;
+        }
+        .btn-magnetic::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            z-index: -1;
+        }
+        .btn-magnetic:hover::before { width: 350px; height: 350px; }
+        
+        /* Purple Gradient & Yellow Glow for Start Project CTA */
+        .btn-glow {
+            background: linear-gradient(45deg, #8B5CF6, #4a00e0);
+            border: none;
+        }
+        
+        /* Slow pulse for yellow glow */
+        .btn-pulse-glow {
+            animation: pulseCTA 4s infinite ease-in-out;
+        }
+        @keyframes pulseCTA {
+            0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 35px rgba(255, 215, 0, 0.8); transform: scale(1.03); }
+            100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); transform: scale(1); }
+        }
+
+        /* Smooth, Slow Gradient Text */
+        .animated-gradient {
+            background: linear-gradient(to right, #06B6D4, #8B5CF6, #EC4899, #06B6D4);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineGradient 12s linear infinite;
+        }
+        
+        /* Logo Specific Calm Purple & Yellow Gradient */
+        .logo-gradient {
+            background: linear-gradient(to right, #8B5CF6, #FFD700, #8B5CF6);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineGradient 10s linear infinite;
+        }
+
+        @keyframes shineGradient {
+            to { background-position: 300% center; }
+        }
+
+        /* Nav Link Underline Hover */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #8B5CF6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Interactive Timeline (Rocket Tracker) */
+        .timeline-container {
+            position: relative;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .timeline-line-glow {
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #06B6D4, #8B5CF6);
+            box-shadow: 0 0 15px #8B5CF6;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+        .rocket-tracker {
+            position: absolute;
+            right: -15px; 
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg); /* Diagonal up right */
+            font-size: 1.8rem;
+            color: #FFD700;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+            transition: transform 0.1s;
+        }
+        .timeline-step { transition: all 0.3s ease; filter: grayscale(100%) opacity(0.5); }
+        .timeline-step.glow-active {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.2) translateY(-10px);
+            text-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
+        }
+
+        /* Dropdown */
+        .dropdown-content {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        .group:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* SPA Page Transitions */
+        .page-section { display: none; opacity: 0; }
+        .page-section.active {
+            display: block;
+            opacity: 1;
+            animation: fadeInPage 0.6s ease-out forwards;
+        }
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.3;
+            animation: floatOrb 10s infinite alternate ease-in-out;
+        }
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -50px) scale(1.2); }
+        }
+        
+        /* Video Background Hero */
+        .hero-video-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -3;
+            opacity: 0.4;
+            mix-blend-mode: screen;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="fixed inset-0 z-[-2] bg-brand-dark"></div>
+    <div class="fixed inset-0 z-[-1] bg-grid opacity-40"></div>
+    <div class="orb bg-brand-purple w-96 h-96 top-[-10%] left-[-10%] fixed"></div>
+    <div class="orb bg-brand-cyan w-[30rem] h-[30rem] bottom-[-20%] right-[-10%] fixed animation-delay-2000"></div>
+
+    <nav class="fixed w-full z-50 glass-panel border-b-0 rounded-none border-b border-white/10 transition-all duration-300 h-20 flex items-center" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex justify-between items-center">
+                <a href="#" onclick="navigateTo('page-home')" class="flex items-center gap-2 group drop-shadow-[0_0_12px_rgba(255,215,0,0.6)]">
+                    <img src="IMG_20260530_130655-removebg-preview.png" alt="SuperNayak Logo" class="h-14 w-auto transform group-hover:scale-110 transition-transform duration-300">
+                    <div class="flex items-center leading-none mt-1">
+                        <span class="font-display font-black text-[1.4rem] tracking-wide logo-gradient">SuperNayak Studio</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" onclick="navigateTo('page-home')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">Home</a>
+                    <a href="#" onclick="navigateTo('page-about')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">About</a>
+                    
+                    <div class="relative group py-6">
+                        <a href="#" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest flex items-center gap-1">
+                            Services <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] md:w-[600px] glass-panel p-6 dropdown-content grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[70vh] overflow-y-auto mt-2">
+                            <a href="#" onclick="navigateTo('page-web')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-laptop-code text-brand-cyan text-2xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-brand-cyan transition-colors">Web Design & Dev</h4>
+                                    <p class="text-xs text-slate-400">Custom sites, Web Apps, UI/UX</p>
+                                </div>
+                            </a>
+                            <a href="#" onclick="navigateTo('page-3d')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-cube text-brand-purple text-2xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-brand-purple transition-colors">2D/3D Art & Assets</h4>
+                                    <p class="text-xs text-slate-400">Modeling, Textures, STL</p>
+                                </div>
+                            </a>
+                            <a href="#" onclick="navigateTo('page-video')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-film text-brand-pink text-2xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-brand-pink transition-colors">Video Editing</h4>
+                                    <p class="text-xs text-slate-400">Cinematic Edits, VFX, Reels</p>
+                                </div>
+                            </a>
+                            <a href="#" onclick="navigateTo('page-social')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-hashtag text-green-400 text-2xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-green-400 transition-colors">Social Media Mgt</h4>
+                                    <p class="text-xs text-slate-400">Growth, Viral Strategy</p>
+                                </div>
+                            </a>
+                            <a href="#" onclick="navigateTo('page-voice')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-microphone-lines text-yellow-400 text-2xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-yellow-400 transition-colors">Voiceover</h4>
+                                    <p class="text-xs text-slate-400">Commercial, Character</p>
+                                </div>
+                            </a>
+                            <a href="#" onclick="navigateTo('page-qa')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-bug text-red-400 text-2xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-red-400 transition-colors">Game QA / Testing</h4>
+                                    <p class="text-xs text-slate-400">Bug Hunting, Performance</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="#" onclick="navigateTo('page-portfolio')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">Portfolio</a>
+                    <a href="#" onclick="navigateTo('page-careers')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">Careers</a>
+                    
+                    <a href="#contact-footer" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 py-3 rounded-full font-bold tracking-wide transition-all">Start Project</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="app-container" class="pt-20 relative z-10">
+
+        <section id="page-home" class="page-section active">
+            
+            <div class="relative min-h-[95vh] flex items-center justify-center pt-10 pb-20 overflow-hidden">
+                <video autoplay loop muted playsinline class="hero-video-bg">
+                    <source src="https://cdn.pixabay.com/video/2023/10/22/186001-876934446_large.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/30 via-brand-dark/80 to-brand-dark z-[-2]"></div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                    
+                    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.1] drop-shadow-2xl">
+                        Level Up Your <br/>
+                        <span class="animated-gradient">Digital Superpowers</span>
+                    </h1>
+                    
+                    <p class="mt-4 max-w-3xl text-xl md:text-2xl text-slate-200 mx-auto mb-12 font-medium leading-relaxed drop-shadow-lg">
+                        SuperNayak Studio bridges visionary game development with elite digital services. From breathtaking 3D worlds to high-converting UI architecture, we build your future.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                        <button onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})" class="btn-magnetic text-white px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/20 transition-all">
+                            Explore Services
+                        </button>
+                        <button onclick="navigateTo('page-portfolio')" class="btn-magnetic px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(255,215,0,0.3)]">
+                            View Portfolio
+                        </button>
+                    </div>
+
+                    <div class="mt-20 flex flex-wrap justify-center gap-4 opacity-90">
+                        <a href="https://youtube.com/@SuperNayakStudio" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-red-500 hover:scale-110 hover:shadow-[0_0_15px_red] transition-all text-xl"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/supernayakstudio" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-pink-500 hover:scale-110 hover:shadow-[0_0_15px_#EC4899] transition-all text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/SuperNayak_" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-brand-cyan hover:scale-110 transition-all text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="https://discord.gg/D4cqVDfDhX" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-indigo-400 hover:scale-110 transition-all text-xl"><i class="fab fa-discord"></i></a>
+                        <a href="https://github.com/SuperNayakStudio" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-white hover:scale-110 transition-all text-xl"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/company/supernayak-studio" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-blue-500 hover:scale-110 transition-all text-xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://artstation.com/SuperNayak" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-brand-cyan hover:scale-110 transition-all text-xl"><i class="fab fa-artstation"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <section class="py-24 relative overflow-hidden bg-brand-card/50 border-y border-white/5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="glass-panel p-12 md:p-20 relative overflow-hidden group border-l-4 border-brand-gold shadow-[0_0_30px_rgba(255,215,0,0.1)]">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+                            <div>
+                                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Driven by <span class="text-brand-gold">Vision</span></h2>
+                                <p class="text-slate-200 text-lg mb-6 leading-relaxed">
+                                    Led by Founder & CEO <strong class="animated-gradient font-display text-3xl block mt-2">Sahil Mandavkar</strong>
+                                </p>
+                                <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                                    Operating out of Thane, Maharashtra, SuperNayak Studio isn't just an agency. We are a collective of hardcore gamers, creative artists, and technical prodigies delivering uncompromised quality globally. Whether you need a game tested, a brand visualized, or a platform developed—we deliver on a world-class level.
+                                </p>
+                                <button onclick="navigateTo('page-about')" class="text-brand-gold font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                                    Discover Our Full Story <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="relative">
+                                <div class="aspect-video rounded-2xl overflow-hidden relative border border-brand-gold/30 shadow-2xl shadow-brand-gold/20 group-hover:shadow-brand-gold/40 transition-shadow duration-500">
+                                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Studio Base">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+                                    <div class="absolute bottom-6 left-6">
+                                        <h4 class="font-display font-bold text-white text-2xl">Thane HQ</h4>
+                                        <p class="text-brand-gold text-sm font-bold tracking-widest uppercase mt-1">Global Delivery Hub</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-24 bg-[#05050A]">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-20">
+                        <h2 class="font-display text-4xl md:text-6xl font-bold mb-4">The <span class="animated-gradient">Blueprint</span></h2>
+                        <p class="text-slate-400 text-lg max-w-2xl mx-auto font-bold">How we work across the timeline to complete the project</p>
+                    </div>
+
+                    <div class="relative py-20 overflow-x-auto lg:overflow-visible hide-scrollbar" id="interactive-process">
+                        <div class="min-w-[800px] relative">
+                            <div class="timeline-container absolute top-1/2 left-0 -translate-y-1/2" id="timeline-track">
+                                <div class="timeline-line-glow" id="timeline-glow">
+                                    <i class="fas fa-rocket rocket-tracker"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="relative z-10 flex justify-between items-center px-4 md:px-12">
+                                <div class="timeline-step text-center w-32" data-index="0">
+                                    <div class="w-20 h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-3xl text-brand-cyan mb-4 shadow-lg shadow-cyan-500/20">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <h4 class="font-display font-bold text-xl text-white">Discovery</h4>
+                                    <p class="text-sm text-slate-400 mt-2">Ideation & Scope</p>
+                                </div>
+                                
+                                <div class="timeline-step text-center w-32" data-index="1">
+                                    <div class="w-20 h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-3xl text-brand-purple mb-4 shadow-lg shadow-purple-500/20">
+                                        <i class="fas fa-pencil-ruler"></i>
+                                    </div>
+                                    <h4 class="font-display font-bold text-xl text-white">Creation</h4>
+                                    <p class="text-sm text-slate-400 mt-2">Design & Art</p>
+                                </div>
+                                
+                                <div class="timeline-step text-center w-32" data-index="2">
+                                    <div class="w-20 h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-3xl text-brand-pink mb-4 shadow-lg shadow-pink-500/20">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <h4 class="font-display font-bold text-xl text-white">Engineering</h4>
+                                    <p class="text-sm text-slate-400 mt-2">Code & Mechanics</p>
+                                </div>
+                                
+                                <div class="timeline-step text-center w-32" data-index="3">
+                                    <div class="w-20 h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-3xl text-brand-gold mb-4 shadow-lg shadow-yellow-500/30">
+                                        <i class="fas fa-space-shuttle transform -rotate-90"></i>
+                                    </div>
+                                    <h4 class="font-display font-bold text-xl text-white">Launch</h4>
+                                    <p class="text-sm text-slate-400 mt-2">QA & Deployment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services-grid" class="py-32 relative">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                        <div>
+                            <h2 class="font-display text-5xl md:text-7xl font-bold mb-4">Digital <br/><span class="text-brand-purple">Superpowers</span></h2>
+                        </div>
+                        <p class="text-slate-300 text-xl max-w-lg font-medium">Specialized solutions crafted to scale businesses, engage communities, and dominate your niche.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-web')">
+                            <div class="text-5xl text-brand-cyan mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-code"></i></div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">Web Design & Dev</h3>
+                            <p class="text-slate-400 mb-8">High-performance architecture, immersive UI/UX, and conversion-focused multi-page structures.</p>
+                            <span class="text-brand-cyan font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+
+                        <div class="glass-panel p-10 hover-card group cursor-pointer border border-brand-purple/20" onclick="navigateTo('page-3d')">
+                            <div class="text-5xl text-brand-purple mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-cube"></i></div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">2D/3D Art & Assets</h3>
+                            <p class="text-slate-400 mb-8">Custom textures, printable STLs, stylized illustrations, and engine-ready optimization.</p>
+                            <span class="text-brand-purple font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+
+                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-video')">
+                            <div class="text-5xl text-brand-pink mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-film"></i></div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">Video Editing</h3>
+                            <p class="text-slate-400 mb-8">Cinematic visual storytelling, advanced motion graphics, and algorithmic retention editing.</p>
+                            <span class="text-brand-pink font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+
+                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-social')">
+                            <div class="text-5xl text-green-400 mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-hashtag"></i></div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">Social Media Mgt</h3>
+                            <p class="text-slate-400 mb-8">Data-driven growth, viral content strategy, and hardcore community building.</p>
+                            <span class="text-green-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+
+                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-voice')">
+                            <div class="text-5xl text-yellow-400 mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-microphone-lines"></i></div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">Voiceover</h3>
+                            <p class="text-slate-400 mb-8">Broadcast-quality audio, character acting, and commanding brand narration.</p>
+                            <span class="text-yellow-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+
+                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-qa')">
+                            <div class="text-5xl text-red-500 mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-bug"></i></div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">Game QA Testing</h3>
+                            <p class="text-slate-400 mb-8">Rigorous bug hunting, mechanical balancing, and edge-case stress testing.</p>
+                            <span class="text-red-500 font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-32 relative overflow-hidden bg-[#020202]">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center mb-16">
+                        <span class="inline-block px-4 py-1 rounded-full bg-red-500/20 text-red-500 font-bold tracking-widest text-sm mb-4 border border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">STUDIO ORIGINALS</span>
+                        <h2 class="font-display text-6xl md:text-8xl font-bold mb-6">Upcoming <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600">Titles</span></h2>
+                        <p class="text-slate-300 text-xl max-w-2xl mx-auto font-medium">We don't just service the industry; we define it. Discover the immersive worlds currently in production.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="glass-panel overflow-hidden group border-red-900/30 hover:border-red-500/70 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] transition-all">
+                            <div class="h-80 relative overflow-hidden bg-black flex items-center justify-center">
+                                <i class="fas fa-skull text-8xl text-red-900/50 group-hover:scale-125 transition-transform duration-700 group-hover:text-red-600/60 drop-shadow-[0_0_20px_rgba(220,38,38,0.5)]"></i>
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a12] to-transparent"></div>
+                            </div>
+                            <div class="p-10 relative z-10 -mt-20">
+                                <h3 class="font-display text-4xl font-bold text-white mb-2">Krodh Room</h3>
+                                <div class="flex gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-red-500/10 rounded text-xs font-bold text-red-400">3D SINGLEPLAYER</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded text-xs font-bold text-slate-300">PARANORMAL RAGE</span>
+                                </div>
+                                <p class="text-slate-400 text-lg mb-8">An adrenaline-fueled test of reflexes and rage management mixed with a dark paranormal twist. Survive the room, conquer the chaos.</p>
+                                <button class="text-white font-bold border-b-2 border-red-500 pb-1 hover:text-red-500 hover:tracking-wide transition-all">Wishlist on Steam <i class="fab fa-steam ml-1"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel overflow-hidden group border-orange-900/30 hover:border-orange-500/70 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all">
+                            <div class="h-80 relative overflow-hidden bg-black flex items-center justify-center">
+                                <i class="fas fa-running text-8xl text-orange-900/50 group-hover:scale-125 transition-transform duration-700 group-hover:text-orange-500/60 drop-shadow-[0_0_20px_rgba(249,115,22,0.5)]"></i>
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a12] to-transparent"></div>
+                            </div>
+                            <div class="p-10 relative z-10 -mt-20">
+                                <h3 class="font-display text-4xl font-bold text-white mb-2">Wari</h3>
+                                <div class="flex gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-orange-500/10 rounded text-xs font-bold text-orange-400">2D ENDLESS RUNNER</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded text-xs font-bold text-slate-300">MYTHOLOGICAL</span>
+                                </div>
+                                <p class="text-slate-400 text-lg mb-8">A deep, culturally rich 2D runner based on a mythological rally. Test your endurance and spirit through breathtaking traditional landscapes.</p>
+                                <button class="text-white font-bold border-b-2 border-orange-500 pb-1 hover:text-orange-500 hover:tracking-wide transition-all">Learn More <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="page-web" class="page-section hidden pt-10 pb-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="mb-16">
+                    <div class="inline-block p-4 rounded-2xl bg-brand-cyan/10 mb-6 shadow-[0_0_30px_rgba(6,182,212,0.2)] border border-brand-cyan/30">
+                        <i class="fas fa-laptop-code text-6xl text-brand-cyan"></i>
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Website Design <br/>& <span class="text-brand-cyan">Development</span></h1>
+                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">Your website is your ultimate digital storefront. We build hyper-fast, aesthetically stunning, and conversion-optimized web platforms that turn casual scrollers into loyal, paying clients. Through advanced UI/UX and robust code engineering, we establish dominant authority for your brand in its niche.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="glass-panel p-8 border-t-4 border-t-brand-cyan hover-card">
+                        <h4 class="text-2xl font-bold text-white mb-3">Corporate Platforms</h4>
+                        <p class="text-slate-400 mb-6">Highly credible multipage structures designed to build massive B2B/B2C trust. Seamless navigation, modern aesthetics, and clear funnels.</p>
+                    </div>
+                    <div class="glass-panel p-8 border-t-4 border-t-brand-purple hover-card">
+                        <h4 class="text-2xl font-bold text-white mb-3">High-Conversion E-Commerce</h4>
+                        <p class="text-slate-400 mb-6">Lightning-fast shops that remove friction. Integrated checkouts, dynamic galleries, and psychological layout triggers to boost cart values.</p>
+                    </div>
+                    <div class="glass-panel p-8 border-t-4 border-t-brand-pink hover-card">
+                        <h4 class="text-2xl font-bold text-white mb-3">Landing / Promo Pages</h4>
+                        <p class="text-slate-400 mb-6">Laser-focused, single-action pages crafted specifically for paid ads or game launches. Pure conversion architecture.</p>
+                    </div>
+                    <div class="glass-panel p-8 border-t-4 border-t-green-400 hover-card">
+                        <h4 class="text-2xl font-bold text-white mb-3">Interactive Web Apps (SPA)</h4>
+                        <p class="text-slate-400 mb-6">App-like experiences directly in the browser. Using modern JS frameworks (React, Vanilla GSAP) for instantaneous state changes without reloads.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Inquire About Web Services</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-3d" class="page-section hidden pt-10 pb-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="mb-16">
+                    <div class="inline-block p-4 rounded-2xl bg-brand-purple/10 mb-6 shadow-[0_0_30px_rgba(139,92,246,0.2)] border border-brand-purple/30">
+                        <i class="fas fa-cube text-6xl text-brand-purple"></i>
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">2D/3D Art <br/>& <span class="text-brand-purple">Asset Creation</span></h1>
+                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">Visuals are the heartbeat of immersion. We forge striking 3D models, precise printable STL files, and engine-ready textures (including ultra-detailed Cerakote weapon finishes). Superior assets drastically escalate the market value of your IP.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div class="glass-panel p-8 text-center hover-card">
+                        <div class="w-20 h-20 bg-brand-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-brand-purple"><i class="fas fa-shapes"></i></div>
+                        <h4 class="text-2xl font-bold text-white mb-4">3D Modeling & STL</h4>
+                        <p class="text-slate-400">High-poly sculpts to optimized low-poly meshes. We create pristine printable STLs and assets optimized for Unity and Unreal.</p>
+                    </div>
+                    <div class="glass-panel p-8 text-center hover-card">
+                        <div class="w-20 h-20 bg-brand-cyan/10 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-brand-cyan"><i class="fas fa-paint-roller"></i></div>
+                        <h4 class="text-2xl font-bold text-white mb-4">Advanced Texturing</h4>
+                        <p class="text-slate-400">PBR workflows, stylized hand-painted maps, and highly sought-after custom skin designs like hyper-realistic weapon finishes.</p>
+                    </div>
+                    <div class="glass-panel p-8 text-center hover-card">
+                        <div class="w-20 h-20 bg-brand-pink/10 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-brand-pink"><i class="fas fa-pen-nib"></i></div>
+                        <h4 class="text-2xl font-bold text-white mb-4">2D Art & Illustration</h4>
+                        <p class="text-slate-400">Breathtaking concept art, clean UI/UX elements for games, stylized character portraits, and vibrant key art for marketing.</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Commission Custom Art</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-video" class="page-section hidden pt-10 pb-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="mb-12">
+                    <div class="inline-block p-4 rounded-2xl bg-brand-pink/10 mb-6 shadow-[0_0_30px_rgba(236,72,153,0.2)] border border-brand-pink/30">
+                        <i class="fas fa-film text-6xl text-brand-pink"></i>
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Cinematic Video <br/>& <span class="text-brand-pink">Motion</span></h1>
+                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">Attention is the new currency. We deliver high-retention video editing optimized for modern social algorithms and stunning cinematic trailers that build massive hype for your products.</p>
+                </div>
+
+                <div class="glass-panel p-10 mb-12 border border-brand-gold/30 relative overflow-hidden">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-gold rounded-full blur-3xl opacity-10"></div>
+                    <h3 class="text-3xl font-display font-bold text-center text-brand-gold mb-10 relative z-10">Transparent Editing Tiers</h3>
+                    <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                        <div class="bg-[#0a0a12]/80 p-8 rounded-2xl text-center border-t-2 border-brand-purple hover-card">
+                            <h4 class="text-2xl font-bold text-white mb-2">Pro Editor</h4>
+                            <p class="text-4xl font-black text-brand-gold mb-4">₹1,000 <span class="text-sm text-slate-400 font-normal">/ video</span></p>
+                            <p class="text-slate-300 font-medium">Standard fast-cut edits, hook optimization, basic motion graphics, and crisp color grading.</p>
+                        </div>
+                        <div class="bg-[#0a0a12]/80 p-8 rounded-2xl text-center border-t-2 border-brand-gold hover-card relative overflow-hidden shadow-[0_0_20px_rgba(255,215,0,0.15)]">
+                            <div class="absolute top-4 right-[-35px] bg-brand-gold text-black text-xs font-black py-1 px-10 transform rotate-45 shadow-lg">POPULAR</div>
+                            <h4 class="text-2xl font-bold text-white mb-2">Full Service</h4>
+                            <p class="text-4xl font-black text-brand-gold mb-4">₹2,000 <span class="text-sm text-slate-400 font-normal">/ video</span></p>
+                            <p class="text-slate-300 font-medium">Premium SFX design, advanced VFX, cinematic transitions, full ideation, and deep retention metrics.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="glass-panel p-10 border-l-4 border-brand-pink hover-card">
+                        <h3 class="text-2xl font-display font-bold text-white mb-4">Game Trailers & Montages</h3>
+                        <p class="text-slate-400 text-lg">We take raw gameplay and turn it into a cinematic spectacle. Using advanced transitions, color grading, and heavy sound design to ensure your Steam page converts.</p>
+                    </div>
+                    <div class="glass-panel p-10 border-l-4 border-brand-cyan hover-card">
+                        <h3 class="text-2xl font-display font-bold text-white mb-4">Short-Form Content</h3>
+                        <p class="text-slate-400 text-lg">Fast-paced, hook-driven edits for Reels & Shorts with dynamic captions and motion graphics designed to exploit algorithm metrics.</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Boost Your Retention</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-social" class="page-section hidden pt-10 pb-32">
+             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="mb-16">
+                    <div class="inline-block p-4 rounded-2xl bg-green-500/10 mb-6 shadow-[0_0_30px_rgba(34,197,94,0.2)] border border-green-500/30">
+                        <i class="fas fa-hashtag text-6xl text-green-400"></i>
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Social Media <br/>& <span class="text-green-400">Brand Growth</span></h1>
+                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">We don't just post; we engineer communities. Using data-driven growth strategies and viral content planning, we ensure your brand dominates the digital space across YouTube, Instagram, and X.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="glass-panel p-8 hover-card border-t border-white/5">
+                        <i class="fas fa-chart-line text-4xl text-green-400 mb-6 block"></i>
+                        <h4 class="text-2xl font-bold text-white mb-3">Audience Engineering</h4>
+                        <p class="text-slate-400">Strategic content scheduling, trend hijacking, and community management to turn casual viewers into absolute loyalists.</p>
+                    </div>
+                    <div class="glass-panel p-8 hover-card border-t border-white/5">
+                        <i class="fas fa-bullhorn text-4xl text-green-400 mb-6 block"></i>
+                        <h4 class="text-2xl font-bold text-white mb-3">Campaign Execution</h4>
+                        <p class="text-slate-400">End-to-end management of game launches or product reveals. We coordinate the hype train so you can focus on building.</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Scale Your Brand</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-voice" class="page-section hidden pt-10 pb-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="mb-16">
+                    <div class="inline-block p-4 rounded-2xl bg-yellow-400/10 mb-6 shadow-[0_0_30px_rgba(250,204,21,0.2)] border border-yellow-400/30">
+                        <i class="fas fa-microphone-lines text-6xl text-yellow-400"></i>
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Professional <br/><span class="text-yellow-400">Voiceover</span></h1>
+                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">Give your project an unforgettable voice. We provide broadcast-quality audio delivered from an acoustically treated studio, perfect for games, commercials, and digital narration.</p>
+                </div>
+
+                <div class="glass-panel p-12 bg-[url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000')] bg-cover bg-blend-overlay bg-[#0a0a12]/95 border border-yellow-400/30 mb-16 shadow-[0_0_40px_rgba(250,204,21,0.1)]">
+                    <h3 class="text-3xl font-display font-bold text-white mb-8">Capabilities</h3>
+                    <ul class="space-y-6 text-lg text-slate-300">
+                        <li class="flex items-start"><i class="fas fa-gamepad text-2xl text-yellow-400 mr-4 mt-1"></i> <span><strong class="text-white text-xl block mb-1">Character Acting</strong> From gritty villains to heroic protagonists for indie and AA titles.</span></li>
+                        <li class="flex items-start"><i class="fas fa-tv text-2xl text-yellow-400 mr-4 mt-1"></i> <span><strong class="text-white text-xl block mb-1">Commercial Audio</strong> High-energy or warm, trustworthy tones for brand ads and YouTube sponsorships.</span></li>
+                        <li class="flex items-start"><i class="fas fa-book-open text-2xl text-yellow-400 mr-4 mt-1"></i> <span><strong class="text-white text-xl block mb-1">Narration</strong> Clear, articulate pacing for documentaries, tutorials, and corporate videos.</span></li>
+                    </ul>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Inquire About Voice Services</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-qa" class="page-section hidden pt-10 pb-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="mb-16">
+                    <div class="inline-block p-4 rounded-2xl bg-red-500/10 mb-6 shadow-[0_0_30px_rgba(239,68,68,0.2)] border border-red-500/30">
+                        <i class="fas fa-bug text-6xl text-red-500"></i>
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Game Testing <br/>& <span class="text-red-500">QA Services</span></h1>
+                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">A great game is instantly ruined by bad bugs. Our rigorous Game QA protects your studio's reputation. We stress-test mechanics, hunt edge cases, and ensure your launch is flawless to secure better reviews and revenue.</p>
+                </div>
+
+                <div class="space-y-6 mb-16">
+                    <div class="glass-panel p-8 flex flex-col md:flex-row gap-8 items-center border-l-4 border-red-500 hover-card">
+                        <div class="w-20 h-20 shrink-0 bg-red-500/10 rounded-xl flex items-center justify-center text-4xl text-red-400"><i class="fas fa-cogs"></i></div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white mb-2">Functional Stress Testing</h4>
+                            <p class="text-slate-400">Systematic play-throughs designed to break mechanics. We document collision errors, logic loops, and progression blockers with precision reporting.</p>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-8 flex flex-col md:flex-row gap-8 items-center border-l-4 border-orange-500 hover-card">
+                        <div class="w-20 h-20 shrink-0 bg-orange-500/10 rounded-xl flex items-center justify-center text-4xl text-orange-400"><i class="fas fa-tachometer-alt"></i></div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white mb-2">Mechanics & Balance</h4>
+                            <p class="text-slate-400">Analyzing the "fun factor". We test level design pacing, enemy AI scaling, and economy loops to ensure player retention.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Secure Your Launch</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-portfolio" class="page-section hidden pt-10 pb-32">
+             <div class="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="text-center mb-16">
+                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Masterpieces in <span class="animated-gradient">Motion</span></h1>
+                    <p class="text-xl text-slate-300 max-w-2xl mx-auto font-medium">Witness the digital superpowers in action. High-end web architecture, cinematic edits, and stunning 3D art.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[350px]">
+                    <div class="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden relative group border border-white/10 hover:border-brand-cyan/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Web Portal">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-sm">
+                            <i class="fas fa-link text-5xl text-brand-cyan drop-shadow-lg"></i>
+                        </div>
+                        <div class="absolute bottom-8 left-8">
+                            <span class="text-brand-cyan text-sm font-bold uppercase tracking-widest mb-2 block">Web Development</span>
+                            <h3 class="text-4xl font-display font-bold text-white">Glassmorphism Corporate UI</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-3xl overflow-hidden relative group border border-white/10 hover:border-brand-purple/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+                        <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="3D Art">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-sm">
+                            <i class="fas fa-search-plus text-4xl text-brand-purple drop-shadow-lg"></i>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="text-brand-purple text-xs font-bold uppercase tracking-widest mb-1 block">3D Modeling</span>
+                            <h3 class="text-2xl font-display font-bold text-white">Custom Printable STLs</h3>
+                        </div>
+                    </div>
+
+                    <div class="rounded-3xl overflow-hidden relative group border border-white/10 hover:border-green-400/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Social Media">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-sm">
+                            <i class="fas fa-hashtag text-4xl text-green-400 drop-shadow-lg"></i>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="text-green-400 text-xs font-bold uppercase tracking-widest mb-1 block">Social Media</span>
+                            <h3 class="text-xl font-display font-bold text-white">Viral Algorithm Strategy</h3>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2 rounded-3xl overflow-hidden relative group border border-white/10 hover:border-brand-pink/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
+                        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1000&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Video Editing">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-sm">
+                            <i class="fas fa-play-circle text-6xl text-brand-pink drop-shadow-lg"></i>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="text-brand-pink text-sm font-bold uppercase tracking-widest mb-2 block">Video Editing</span>
+                            <h3 class="text-3xl font-display font-bold text-white">Cinematic Reveal Trailers</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-about" class="page-section hidden pt-10 pb-32">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <h1 class="text-5xl md:text-7xl font-display font-black text-white mb-8">ABOUT <span class="text-brand-gold animated-gradient">SUPERNAYAK</span></h1>
+                <img src="IMG_20260530_130655-removebg-preview.png" class="h-40 mx-auto mb-10 drop-shadow-[0_0_30px_rgba(255,215,0,0.4)]" alt="SuperNayak">
+                
+                <div class="glass-panel p-12 rounded-3xl text-left border-l-4 border-brand-gold mb-12 shadow-[0_0_40px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-purple rounded-full blur-3xl opacity-20"></div>
+                    <h2 class="text-3xl font-bold text-brand-gold mb-2">Founder / CEO</h2>
+                    <h3 class="text-4xl font-display font-bold text-white mb-8">Sahil Mandavkar</h3>
+                    
+                    <p class="text-slate-300 font-medium text-xl leading-relaxed mb-6">
+                        Based in Thane, Maharashtra, India, SuperNayak Studio was built on a foundation of unyielding creativity and technical precision. What started as a passion for full-stack development, 3D modeling, and fast-cut video editing has evolved into a global powerhouse.
+                    </p>
+                    <p class="text-slate-300 font-medium text-xl leading-relaxed mb-6">
+                        We operate on dual fronts: as a premium service agency delivering cutting-edge web platforms, cinematic video edits, and interactive 3D assets to global clients, and as an indie game development studio crafting original titles like Krodh Room and Wari.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-careers" class="page-section hidden pt-10 pb-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="text-center mb-16">
+                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Join the <span class="animated-gradient">SuperNayak</span> Core</h1>
+                    <p class="text-xl text-slate-300 max-w-2xl mx-auto font-medium">We are actively scouting visionary developers, artists, and strategists. If you want to build extraordinary things, apply below.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="font-display text-3xl font-bold mb-8 text-white border-b border-white/10 pb-4">Open Roles</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="glass-panel p-6 hover:border-brand-cyan transition-colors cursor-pointer group shadow-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Gameplay Programmer</h4>
+                                    <span class="text-xs bg-white/10 px-2 py-1 rounded text-brand-cyan font-bold">Remote / Thane</span>
+                                </div>
+                                <p class="text-sm text-slate-400">C# Unity expertise required.</p>
+                            </div>
+                            
+                            <div class="glass-panel p-6 hover:border-brand-purple transition-colors cursor-pointer group shadow-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xl font-bold text-white group-hover:text-brand-purple transition-colors">UI/UX Web Developer</h4>
+                                    <span class="text-xs bg-white/10 px-2 py-1 rounded text-brand-purple font-bold">Hybrid</span>
+                                </div>
+                                <p class="text-sm text-slate-400">React, Tailwind, GSAP skills needed.</p>
+                            </div>
+                            
+                            <div class="glass-panel p-6 hover:border-brand-pink transition-colors cursor-pointer group shadow-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xl font-bold text-white group-hover:text-brand-pink transition-colors">3D Prop Artist</h4>
+                                    <span class="text-xs bg-white/10 px-2 py-1 rounded text-brand-pink font-bold">Remote</span>
+                                </div>
+                                <p class="text-sm text-slate-400">Blender, Substance Painter workflow.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-panel p-10 border border-brand-cyan/20 relative overflow-hidden">
+                         <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-cyan rounded-full blur-3xl opacity-10"></div>
+                        <h3 class="font-display text-2xl font-bold mb-6 text-white relative z-10">Submit Application</h3>
+                        <form class="space-y-5 relative z-10">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Full Name</label>
+                                <input type="text" class="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="e.g. John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Portfolio Link (Crucial)</label>
+                                <input type="url" class="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="GitHub, ArtStation, etc.">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Role & Pitch</label>
+                                <textarea rows="4" class="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="Why SuperNayak Studio?"></textarea>
+                            </div>
+                            <button type="button" class="w-full btn-magnetic btn-glow btn-pulse-glow text-white py-4 rounded-lg font-bold text-lg mt-2 shadow-lg shadow-cyan-500/20">
+                                Launch Application <i class="fas fa-rocket ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact-footer" class="relative bg-[#000] pt-32 pb-10 border-t border-white/10 overflow-hidden z-20">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-panel p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 mb-24 bg-gradient-to-r from-white/5 to-transparent border-l-4 border-l-brand-cyan shadow-[0_0_30px_rgba(6,182,212,0.1)]">
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-white mb-2">Trusted Global Track Record</h3>
+                    <p class="text-slate-400 max-w-2xl font-medium">Consistent Top-Rated 5-Star delivery on international platforms (including Fiverr) and independent enterprise contracts worldwide.</p>
+                </div>
+                <div class="flex gap-2 text-brand-gold text-3xl drop-shadow-[0_0_15px_rgba(255,215,0,0.6)]">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+                <div>
+                    <h2 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Let's <span class="text-brand-pink animated-gradient">Connect</span></h2>
+                    <p class="text-slate-300 text-xl mb-12 font-medium">Global clients accepted. We accept multi-currency overseas payments, as well as UPI and Bank Transfers within India.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-6 group cursor-default">
+                            <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-brand-cyan text-2xl group-hover:bg-brand-cyan group-hover:text-black transition-all shadow-lg">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xl">Studio Base</h4>
+                                <p class="text-slate-400">Thane, Maharashtra, India</p>
+                            </div>
+                        </div>
+                        <a href="tel:+917021850473" class="flex items-center gap-6 group cursor-pointer">
+                            <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-brand-purple text-2xl group-hover:bg-brand-purple group-hover:text-white transition-all shadow-lg">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xl">Direct Line</h4>
+                                <p class="text-slate-400">+91 7021850473</p>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/917021850473" target="_blank" class="flex items-center gap-6 group cursor-pointer">
+                            <div class="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-500 text-3xl group-hover:bg-green-500 group-hover:text-black transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xl">WhatsApp Us</h4>
+                                <p class="text-slate-400">Discuss Your Project Instantly</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-10 relative border border-white/10 hover:border-brand-pink/30 transition-colors">
+                    <form>
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <input type="text" class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors placeholder-slate-500" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <input type="email" class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors placeholder-slate-500" placeholder="Email Address">
+                            </div>
+                        </div>
+                        <div class="mb-6 relative">
+                            <select class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select Service Needed...</option>
+                                <option>Web Design & Dev</option>
+                                <option>2D/3D Art & Skins</option>
+                                <option>Video Editing</option>
+                                <option>Social Media Management</option>
+                                <option>Voiceover</option>
+                                <option>Game Testing & QA</option>
+                            </select>
+                            <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"></i>
+                        </div>
+                        
+                        <div class="mb-6 relative">
+                            <select class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select Budget Scope...</option>
+                                <option>$50 - $100</option>
+                                <option>$100 - $500</option>
+                                <option>$500 - $1000</option>
+                                <option>$1000 - $5000</option>
+                                <option>$6000 - $10000</option>
+                            </select>
+                            <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"></i>
+                        </div>
+
+                        <div class="mb-10">
+                            <textarea rows="4" class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors placeholder-slate-500" placeholder="Project Details & Scope..."></textarea>
+                        </div>
+                        <button type="button" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-lg font-bold w-full text-lg shadow-lg">
+                            Initialize Project <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-white/10 mb-8">
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-xl">Quick Links</h4>
+                    <ul class="space-y-2 text-slate-400 font-medium">
+                        <li><a href="#" onclick="navigateTo('page-home')" class="hover:text-brand-cyan transition-colors">Home</a></li>
+                        <li><a href="#" onclick="navigateTo('page-about')" class="hover:text-brand-cyan transition-colors">About Us</a></li>
+                        <li><a href="#" onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})" class="hover:text-brand-cyan transition-colors">Services</a></li>
+                        <li><a href="#" onclick="navigateTo('page-portfolio')" class="hover:text-brand-cyan transition-colors">Portfolio</a></li>
+                        <li><a href="#" onclick="navigateTo('page-careers')" class="hover:text-brand-cyan transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h4 class="text-white font-bold mb-4 text-xl">Connect With Us</h4>
+                    <div class="flex flex-wrap gap-4 text-3xl text-slate-400">
+                        <a href="https://youtube.com/@SuperNayakStudio" target="_blank" class="hover:text-[#FF0000] transition transform hover:scale-110"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/supernayakstudio" target="_blank" class="hover:text-[#E1306C] transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                        <a href="https://discord.gg/D4cqVDfDhX" target="_blank" class="hover:text-[#5865F2] transition transform hover:scale-110"><i class="fab fa-discord"></i></a>
+                        <a href="https://github.com/SuperNayakStudio" target="_blank" class="hover:text-white transition transform hover:scale-110"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/SuperNayak_" target="_blank" class="hover:text-[#1DA1F2] transition transform hover:scale-110"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/company/supernayak-studio" target="_blank" class="hover:text-[#0077B5] transition transform hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/SuperNayak" target="_blank" class="hover:text-[#1877F2] transition transform hover:scale-110"><i class="fab fa-facebook"></i></a>
+                        <a href="https://artstation.com/SuperNayak" target="_blank" class="hover:text-[#13AFF0] transition transform hover:scale-110"><i class="fab fa-artstation"></i></a>
+                        <a href="https://behance.net/SuperNayak" target="_blank" class="hover:text-[#1769ff] transition transform hover:scale-110"><i class="fab fa-behance"></i></a>
+                        <a href="https://pinterest.com/SuperNayak" target="_blank" class="hover:text-[#E60023] transition transform hover:scale-110"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="hover:text-brand-gold transition transform hover:scale-110"><i class="fab fa-steam"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 gap-4">
+                <div class="text-2xl font-display font-bold flex items-center">
+                    <img src="IMG_20260530_130655-removebg-preview.png" alt="Logo" class="h-8 w-auto mr-2"> 
+                    SN <span class="text-brand-cyan text-sm align-middle ml-2">© 2026</span>
+                </div>
+                
+                <p class="text-slate-500 font-bold tracking-widest text-xs uppercase text-center">Developed with ❤️ by SuperNayak Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- SPA Navigation Logic (Rock Solid Stability) ---
+        function navigateTo(pageId) {
+            const pages = document.querySelectorAll('.page-section');
+            
+            pages.forEach(page => {
+                if(page.classList.contains('active')) {
+                    gsap.to(page, {opacity: 0, y: -20, duration: 0.3, onComplete: () => {
+                        page.classList.remove('active');
+                        page.classList.add('hidden');
+                        
+                        // Show new
+                        const target = document.getElementById(pageId);
+                        if(target) {
+                            target.classList.remove('hidden');
+                            target.classList.add('active');
+                            gsap.fromTo(target, {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 0.5, ease: "power2.out"});
+                        }
+                        // Scroll to top instantly on page change (accounting for fixed header)
+                        window.scrollTo({ top: 0, behavior: 'instant' });
+                    }});
+                }
+            });
+        }
+
+        // --- Interactive Timeline Logic (Rocket Tracker) ---
+        const timeline = document.getElementById('interactive-process');
+        const track = document.getElementById('timeline-track');
+        const lineGlow = document.getElementById('timeline-glow');
+        const steps = document.querySelectorAll('.timeline-step');
+
+        if(timeline && track) {
+            const handleMovement = (clientX) => {
+                const rect = track.getBoundingClientRect();
+                let x = clientX - rect.left;
+                if (x < 0) x = 0;
+                if (x > rect.width) x = rect.width;
+                
+                const percentage = (x / rect.width) * 100;
+                
+                // Animate timeline width
+                gsap.to(lineGlow, { width: `${percentage}%`, duration: 0.4, ease: "power2.out" });
+                
+                steps.forEach((step, index) => {
+                    const stepRect = step.getBoundingClientRect();
+                    const stepCenter = stepRect.left + (stepRect.width / 2);
+                    const dist = Math.abs(clientX - stepCenter);
+                    
+                    if (dist < 120 || percentage > (index * 33.3)) {
+                        step.classList.add('glow-active');
+                    } else {
+                        step.classList.remove('glow-active');
+                    }
+                });
+            }
+
+            // Mouse support
+            timeline.addEventListener('mousemove', (e) => handleMovement(e.clientX));
+            timeline.addEventListener('mouseleave', () => {
+                gsap.to(lineGlow, { width: `0%`, duration: 1, ease: "power3.out" });
+                steps.forEach(step => step.classList.remove('glow-active'));
+            });
+
+            // Touch support for Mobile
+            timeline.addEventListener('touchmove', (e) => {
+                handleMovement(e.touches[0].clientX);
+            }, {passive: true});
+        }
+
+        // --- Navbar Scroll Effect ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#0a0a12]/95', 'shadow-2xl', 'backdrop-blur-md');
+                navbar.classList.remove('border-transparent');
+            } else {
+                navbar.classList.remove('bg-[#0a0a12]/95', 'shadow-2xl', 'backdrop-blur-md');
+                navbar.classList.add('border-transparent');
+            }
+        });
+    </script>
+</body>
+</html>
