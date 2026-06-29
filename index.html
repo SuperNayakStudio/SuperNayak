@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>SuperNayak Studio | Game Dev & Elite Digital Craftsmanship</title>
-    <meta name="description" content="SuperNayak Studio is a premier game development and creative digital agency offering world-class web design, 3D art, video editing, social media management, and QA services.">
-    <meta name="keywords" content="game development studio, creative digital studio, website design and development, freelance digital services, voiceover, social media management, 3D assets, Krodh Room">
-    <meta name="author" content="Sahil Mandavkar">
+    <title>SuperNayak Studio | Game Dev & Creative Digital Services</title>
+    
+    <meta name="description" content="Official portfolio of SuperNayak Studio. Specialized in premium game development, high-retention video editing, full-stack web engineering, and elite 3D asset modeling.">
+    
+    <meta name="keywords" content="SuperNayak Studio, SuperNayak, Super Nayak, su, sup, supe, super, supern, game dev, game development, video editor, 3d modeling, web design, digital craftsmanship">
+    
+    <meta property="og:title" content="SuperNayak Studio | Game Dev & Creative Digital Services">
+    <meta property="og:description" content="Premium game development, elite digital craftsmanship, VFX, and interactive web experiences. Let's build your vision.">
+    <meta property="og:site_name" content="SuperNayak Studio">
+    <meta name="robots" content="index, follow">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Righteous&family=Space+Grotesk:wght@600;700&family=Syne:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,6 +28,8 @@
                     fontFamily: {
                         sans: ['Manrope', 'sans-serif'],
                         display: ['Syne', 'sans-serif'],
+                        gaming: ['Righteous', 'cursive'],
+                        heroText: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -30,7 +38,6 @@
                             purple: '#8B5CF6',
                             pink: '#EC4899',
                             cyan: '#06B6D4',
-                            neon: '#39FF14',
                             gold: '#FFD700'
                         }
                     }
@@ -51,6 +58,12 @@
 
         p { color: #E2E8F0; line-height: 1.8; font-size: 1.05rem; }
         
+        /* Font descender fix */
+        h1, h2, h3, h4, h5, h6, .font-display, .font-heroText, .font-gaming {
+            padding-bottom: 0.1em;
+            line-height: 1.15 !important;
+        }
+
         /* Dynamic Background */
         .bg-grid {
             background-size: 40px 40px;
@@ -77,7 +90,7 @@
             background: rgba(20, 20, 30, 0.8);
         }
 
-        /* Interactive Buttons */
+        /* Interactive Buttons - Fixed Hover Animation Size */
         .btn-magnetic {
             position: relative;
             display: inline-flex;
@@ -99,25 +112,18 @@
             transition: width 0.6s ease, height 0.6s ease;
             z-index: -1;
         }
-        .btn-magnetic:hover::before { width: 350px; height: 350px; }
+        .btn-magnetic:hover::before { width: 800px; height: 800px; }
         
-        /* Purple Gradient & Yellow Glow for Start Project CTA */
-        .btn-glow {
-            background: linear-gradient(45deg, #8B5CF6, #4a00e0);
-            border: none;
-        }
+        .btn-glow { background: linear-gradient(45deg, #8B5CF6, #4a00e0); border: none; }
         
-        /* Slow pulse for yellow glow */
-        .btn-pulse-glow {
-            animation: pulseCTA 4s infinite ease-in-out;
-        }
+        .btn-pulse-glow { animation: pulseCTA 4s infinite ease-in-out; }
         @keyframes pulseCTA {
             0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); transform: scale(1); }
-            50% { box-shadow: 0 0 35px rgba(255, 215, 0, 0.8); transform: scale(1.03); }
+            25% { box-shadow: 0 0 35px rgba(255, 215, 0, 0.8); transform: scale(1.03); }
+            50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); transform: scale(1); }
             100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); transform: scale(1); }
         }
 
-        /* Smooth, Slow Gradient Text */
         .animated-gradient {
             background: linear-gradient(to right, #06B6D4, #8B5CF6, #EC4899, #06B6D4);
             background-size: 300% auto;
@@ -126,186 +132,189 @@
             animation: shineGradient 12s linear infinite;
         }
         
-        /* Logo Specific Calm Purple & Yellow Gradient */
         .logo-gradient {
-            background: linear-gradient(to right, #8B5CF6, #FFD700, #8B5CF6);
-            background-size: 200% auto;
+            background: linear-gradient(to right, #8B5CF6, #8B5CF6, #8B5CF6, #FFD700, #8B5CF6, #8B5CF6, #8B5CF6);
+            background-size: 300% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shineGradient 10s linear infinite;
+            animation: shineLogo 6s linear infinite;
         }
 
-        @keyframes shineGradient {
-            to { background-position: 300% center; }
+        @keyframes shineGradient { to { background-position: 300% center; } }
+        @keyframes shineLogo { 
+            0% { background-position: 0% center; } 
+            100% { background-position: -300% center; } 
         }
 
-        /* Nav Link Underline Hover */
-        .nav-link {
-            position: relative;
-        }
+        .nav-link { position: relative; }
         .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #8B5CF6;
-            transition: width 0.3s ease;
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background-color: #8B5CF6; transition: width 0.3s ease;
         }
-        .nav-link:hover::after {
-            width: 100%;
-        }
+        .nav-link:hover::after, .nav-link.active-nav::after { width: 100%; }
 
-        /* Interactive Timeline (Rocket Tracker) */
+        /* Timeline */
         .timeline-container {
-            position: relative;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            cursor: pointer;
+            position: relative; width: 100%; height: 4px; background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px; cursor: pointer;
         }
         .timeline-line-glow {
-            position: absolute;
-            top: 0; left: 0;
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #06B6D4, #8B5CF6);
-            box-shadow: 0 0 15px #8B5CF6;
-            border-radius: 2px;
-            pointer-events: none;
+            position: absolute; top: 0; left: 0; height: 100%; width: 0%;
+            background: linear-gradient(90deg, #06B6D4, #8B5CF6); box-shadow: 0 0 15px #8B5CF6;
+            border-radius: 2px; pointer-events: none;
         }
         .rocket-tracker {
-            position: absolute;
-            right: -15px; 
-            top: 50%;
-            transform: translateY(-50%) rotate(45deg); /* Diagonal up right */
-            font-size: 1.8rem;
-            color: #FFD700;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+            position: absolute; right: -15px; top: 50%; transform: translateY(-50%) rotate(45deg);
+            font-size: 1.8rem; color: #FFD700; filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
             transition: transform 0.1s;
         }
         .timeline-step { transition: all 0.3s ease; filter: grayscale(100%) opacity(0.5); }
         .timeline-step.glow-active {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.2) translateY(-10px);
+            filter: grayscale(0%) opacity(1); transform: scale(1.2) translateY(-10px);
             text-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
         }
 
-        /* Dropdown */
+        /* Dropdown Centered Slide & Row Cascade Fix */
         .dropdown-content {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
+            opacity: 0; visibility: hidden; 
+            transform: translate(-50%, -20px); left: 50%;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            transform-origin: top center;
         }
-        .group:hover .dropdown-content {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .group:hover .dropdown-content { 
+            opacity: 1; visibility: visible; 
+            transform: translate(-50%, 0); 
         }
+        
+        .dropdown-item {
+            opacity: 0; transform: translateY(15px) scale(0.95);
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .group:hover .dropdown-item { opacity: 1; transform: translateY(0) scale(1); }
+        
+        /* Row 1 Delays */
+        .group:hover .dropdown-item:nth-child(1) { transition-delay: 0.10s; }
+        .group:hover .dropdown-item:nth-child(2) { transition-delay: 0.15s; }
+        .group:hover .dropdown-item:nth-child(3) { transition-delay: 0.20s; }
+        .group:hover .dropdown-item:nth-child(4) { transition-delay: 0.25s; }
+        /* Row 2 Delays */
+        .group:hover .dropdown-item:nth-child(5) { transition-delay: 0.30s; }
+        .group:hover .dropdown-item:nth-child(6) { transition-delay: 0.35s; }
+        .group:hover .dropdown-item:nth-child(7) { transition-delay: 0.40s; }
+        .group:hover .dropdown-item:nth-child(8) { transition-delay: 0.45s; }
 
         /* SPA Page Transitions */
         .page-section { display: none; opacity: 0; }
         .page-section.active {
-            display: block;
-            opacity: 1;
-            animation: fadeInPage 0.6s ease-out forwards;
+            display: block; opacity: 1; animation: fadeInPage 0.6s ease-out forwards;
         }
-        @keyframes fadeInPage {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeInPage { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Floating Orbs */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: -1;
-            opacity: 0.3;
-            animation: floatOrb 10s infinite alternate ease-in-out;
-        }
-        @keyframes floatOrb {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, -50px) scale(1.2); }
-        }
+        /* Orbs */
+        .orb { position: absolute; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.3; animation: floatOrb 10s infinite alternate ease-in-out; }
+        @keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.2); } }
         
-        /* Video Background Hero */
-        .hero-video-bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: -3;
-            opacity: 0.4;
-            mix-blend-mode: screen;
-        }
+        .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -3; opacity: 0.4; mix-blend-mode: screen; }
+
+        /* Mobile Menu */
+        #mobile-menu.menu-active { transform: translateX(0); }
+
+        /* Scroll Reveal Classes */
+        .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        
+        .reveal-scale { opacity: 0; transform: scale(0.9); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+        
+        /* Staggered delay classes for grids */
+        .delay-100.active { transition-delay: 100ms; }
+        .delay-200.active { transition-delay: 200ms; }
+        .delay-300.active { transition-delay: 300ms; }
+        .delay-400.active { transition-delay: 400ms; }
     </style>
 </head>
 <body class="antialiased">
 
     <div class="fixed inset-0 z-[-2] bg-brand-dark"></div>
     <div class="fixed inset-0 z-[-1] bg-grid opacity-40"></div>
-    <div class="orb bg-brand-purple w-96 h-96 top-[-10%] left-[-10%] fixed"></div>
-    <div class="orb bg-brand-cyan w-[30rem] h-[30rem] bottom-[-20%] right-[-10%] fixed animation-delay-2000"></div>
+    <div class="orb bg-brand-purple w-96 h-96 top-[-10%] left-[-10%] fixed pointer-events-none"></div>
+    <div class="orb bg-brand-cyan w-[30rem] h-[30rem] bottom-[-20%] right-[-10%] fixed animation-delay-2000 pointer-events-none"></div>
 
     <nav class="fixed w-full z-50 glass-panel border-b-0 rounded-none border-b border-white/10 transition-all duration-300 h-20 flex items-center" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="flex justify-between items-center">
-                <a href="#" onclick="navigateTo('page-home')" class="flex items-center gap-2 group drop-shadow-[0_0_12px_rgba(255,215,0,0.6)]">
-                    <img src="IMG_20260530_130655-removebg-preview.png" alt="SuperNayak Logo" class="h-14 w-auto transform group-hover:scale-110 transition-transform duration-300">
+                <a href="#page-home" onclick="navigateTo('page-home')" class="flex items-center gap-2 group drop-shadow-[0_0_12px_rgba(255,215,0,0.6)]">
+                    <img src="IMG_20260530_130655-removebg-preview.png" alt="SuperNayak Logo" class="h-12 md:h-14 w-auto transform group-hover:scale-110 transition-transform duration-300">
                     <div class="flex items-center leading-none mt-1">
-                        <span class="font-display font-black text-[1.4rem] tracking-wide logo-gradient">SuperNayak Studio</span>
+                        <span class="font-display font-black text-xl md:text-[1.4rem] tracking-wide logo-gradient inline-block scale-y-[1.3] scale-x-[0.9] origin-left">SuperNayak Studio</span>
                     </div>
                 </a>
                 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#" onclick="navigateTo('page-home')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">Home</a>
-                    <a href="#" onclick="navigateTo('page-about')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">About</a>
+                <div class="hidden md:flex items-center space-x-8 h-full">
+                    <a href="#page-home" data-target="page-home" onclick="navigateTo('page-home')" class="nav-link active-nav text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">Home</a>
+                    <a href="#page-about" data-target="page-about" onclick="navigateTo('page-about')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">About</a>
                     
-                    <div class="relative group py-6">
-                        <a href="#" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest flex items-center gap-1">
+                    <div class="relative group h-full flex items-center py-6">
+                        <a href="#services-grid" class="nav-link text-slate-200 group-hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest flex items-center gap-1 cursor-pointer">
                             Services <i class="fas fa-chevron-down text-xs"></i>
                         </a>
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] md:w-[600px] glass-panel p-6 dropdown-content grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[70vh] overflow-y-auto mt-2">
-                            <a href="#" onclick="navigateTo('page-web')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                        <div class="absolute top-[80px] w-[1000px] glass-panel p-6 dropdown-content grid grid-cols-4 gap-4 border-t border-brand-purple/30 shadow-2xl">
+                            <a href="#page-gamedev" onclick="navigateTo('page-gamedev')" class="dropdown-item p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-gamepad text-brand-gold text-2xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-brand-gold transition-colors">Game Design & Dev</h4>
+                                    <p class="text-xs text-slate-400">Scratch to Launch</p>
+                                </div>
+                            </a>
+                            <a href="#page-web" onclick="navigateTo('page-web')" class="dropdown-item p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
                                 <i class="fas fa-laptop-code text-brand-cyan text-2xl mt-1"></i>
                                 <div>
                                     <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-brand-cyan transition-colors">Web Design & Dev</h4>
-                                    <p class="text-xs text-slate-400">Custom sites, Web Apps, UI/UX</p>
+                                    <p class="text-xs text-slate-400">Custom sites, Web Apps, UI</p>
                                 </div>
                             </a>
-                            <a href="#" onclick="navigateTo('page-3d')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
-                                <i class="fas fa-cube text-brand-purple text-2xl mt-1"></i>
+                            <a href="#page-2d" onclick="navigateTo('page-2d')" class="dropdown-item p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-paint-brush text-brand-purple text-2xl mt-1"></i>
                                 <div>
-                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-brand-purple transition-colors">2D/3D Art & Assets</h4>
-                                    <p class="text-xs text-slate-400">Modeling, Textures, STL</p>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-brand-purple transition-colors">2D Art & Design</h4>
+                                    <p class="text-xs text-slate-400">Thumbnails, Graphics, Covers</p>
                                 </div>
                             </a>
-                            <a href="#" onclick="navigateTo('page-video')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                            <a href="#page-3d" onclick="navigateTo('page-3d')" class="dropdown-item p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-cube text-blue-400 text-2xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-blue-400 transition-colors">3D Art & Assets</h4>
+                                    <p class="text-xs text-slate-400">Printing, Modeling, Textures</p>
+                                </div>
+                            </a>
+                            <a href="#page-video" onclick="navigateTo('page-video')" class="dropdown-item p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
                                 <i class="fas fa-film text-brand-pink text-2xl mt-1"></i>
                                 <div>
-                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-brand-pink transition-colors">Video Editing</h4>
-                                    <p class="text-xs text-slate-400">Cinematic Edits, VFX, Reels</p>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-brand-pink transition-colors">Video & VFX</h4>
+                                    <p class="text-xs text-slate-400">Cinematic, YT, Animation</p>
                                 </div>
                             </a>
-                            <a href="#" onclick="navigateTo('page-social')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                            <a href="#page-social" onclick="navigateTo('page-social')" class="dropdown-item p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
                                 <i class="fas fa-hashtag text-green-400 text-2xl mt-1"></i>
                                 <div>
                                     <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-green-400 transition-colors">Social Media Mgt</h4>
-                                    <p class="text-xs text-slate-400">Growth, Viral Strategy</p>
+                                    <p class="text-xs text-slate-400">Growth, Discord, Viral</p>
                                 </div>
                             </a>
-                            <a href="#" onclick="navigateTo('page-voice')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
-                                <i class="fas fa-microphone-lines text-yellow-400 text-2xl mt-1"></i>
+                            <a href="#page-performing" onclick="navigateTo('page-performing')" class="dropdown-item p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                                <i class="fas fa-masks-theater text-yellow-400 text-2xl mt-1"></i>
                                 <div>
-                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-yellow-400 transition-colors">Voiceover</h4>
-                                    <p class="text-xs text-slate-400">Commercial, Character</p>
+                                    <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-yellow-400 transition-colors">Performing Artists</h4>
+                                    <p class="text-xs text-slate-400">Dance, Voice, Acting, Music</p>
                                 </div>
                             </a>
-                            <a href="#" onclick="navigateTo('page-qa')" class="p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
+                            <a href="#page-qa" onclick="navigateTo('page-qa')" class="dropdown-item p-4 rounded-xl hover:bg-white/5 transition-colors group/item flex items-start gap-4">
                                 <i class="fas fa-bug text-red-400 text-2xl mt-1"></i>
                                 <div>
                                     <h4 class="font-display font-bold text-white mb-1 group-hover/item:text-red-400 transition-colors">Game QA / Testing</h4>
@@ -315,20 +324,51 @@
                         </div>
                     </div>
                     
-                    <a href="#" onclick="navigateTo('page-portfolio')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">Portfolio</a>
-                    <a href="#" onclick="navigateTo('page-careers')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">Careers</a>
+                    <a href="#page-portfolio" data-target="page-portfolio" onclick="navigateTo('page-portfolio')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">Portfolio</a>
+                    <a href="#page-careers" data-target="page-careers" onclick="navigateTo('page-careers')" class="nav-link text-slate-200 hover:text-brand-purple font-medium transition-colors text-sm uppercase tracking-widest">Careers</a>
                     
-                    <a href="#contact-footer" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 py-3 rounded-full font-bold tracking-wide transition-all">Start Project</a>
+                    <a href="#contact-footer" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 py-3 rounded-full font-bold tracking-wide transition-all ml-4">Start Project</a>
                 </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-slate-200 text-2xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <main id="app-container" class="pt-20 relative z-10">
-
-        <section id="page-home" class="page-section active">
+    <div id="mobile-menu" class="fixed inset-0 bg-[#0a0a12]/95 backdrop-blur-2xl z-40 hidden flex-col pt-24 px-6 overflow-y-auto pb-10 transform translate-x-full transition-transform duration-300 md:hidden">
+        <button id="mobile-close-btn" class="absolute top-6 right-6 text-slate-300 text-3xl"><i class="fas fa-times"></i></button>
+        
+        <div class="flex flex-col space-y-6 text-center mt-8">
+            <a href="#page-home" data-target="page-home" onclick="navigateTo('page-home'); closeMobileMenu()" class="nav-link text-2xl font-bold text-slate-200 hover:text-brand-purple">Home</a>
+            <a href="#page-about" data-target="page-about" onclick="navigateTo('page-about'); closeMobileMenu()" class="nav-link text-2xl font-bold text-slate-200 hover:text-brand-purple">About Us</a>
             
-            <div class="relative min-h-[95vh] flex items-center justify-center pt-10 pb-20 overflow-hidden">
+            <div class="border-y border-white/10 py-6">
+                <h4 class="text-lg font-bold text-brand-purple mb-4 uppercase tracking-widest">Our Services</h4>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="#page-gamedev" onclick="navigateTo('page-gamedev'); closeMobileMenu()" class="text-sm text-slate-300 hover:text-brand-gold flex items-center justify-center gap-2"><i class="fas fa-gamepad"></i> Game Dev</a>
+                    <a href="#page-web" onclick="navigateTo('page-web'); closeMobileMenu()" class="text-sm text-slate-300 hover:text-brand-cyan flex items-center justify-center gap-2"><i class="fas fa-laptop-code"></i> Web Dev</a>
+                    <a href="#page-2d" onclick="navigateTo('page-2d'); closeMobileMenu()" class="text-sm text-slate-300 hover:text-brand-purple flex items-center justify-center gap-2"><i class="fas fa-paint-brush"></i> 2D Art</a>
+                    <a href="#page-3d" onclick="navigateTo('page-3d'); closeMobileMenu()" class="text-sm text-slate-300 hover:text-blue-400 flex items-center justify-center gap-2"><i class="fas fa-cube"></i> 3D Assets</a>
+                    <a href="#page-video" onclick="navigateTo('page-video'); closeMobileMenu()" class="text-sm text-slate-300 hover:text-brand-pink flex items-center justify-center gap-2"><i class="fas fa-film"></i> Video/VFX</a>
+                    <a href="#page-social" onclick="navigateTo('page-social'); closeMobileMenu()" class="text-sm text-slate-300 hover:text-green-400 flex items-center justify-center gap-2"><i class="fas fa-hashtag"></i> Socials</a>
+                    <a href="#page-performing" onclick="navigateTo('page-performing'); closeMobileMenu()" class="text-sm text-slate-300 hover:text-yellow-400 flex items-center justify-center gap-2"><i class="fas fa-masks-theater"></i> Artists</a>
+                    <a href="#page-qa" onclick="navigateTo('page-qa'); closeMobileMenu()" class="text-sm text-slate-300 hover:text-red-500 flex items-center justify-center gap-2"><i class="fas fa-bug"></i> Game QA</a>
+                </div>
+            </div>
+
+            <a href="#page-portfolio" data-target="page-portfolio" onclick="navigateTo('page-portfolio'); closeMobileMenu()" class="nav-link text-2xl font-bold text-slate-200 hover:text-brand-purple">Portfolio</a>
+            <a href="#page-careers" data-target="page-careers" onclick="navigateTo('page-careers'); closeMobileMenu()" class="nav-link text-2xl font-bold text-slate-200 hover:text-brand-purple">Careers</a>
+            
+            <button onclick="document.getElementById('contact-footer').scrollIntoView(); closeMobileMenu()" class="mt-4 btn-glow text-white px-8 py-4 rounded-full font-bold tracking-wide w-full shadow-lg shadow-purple-500/20">Start Project</button>
+        </div>
+    </div>
+
+    <main id="app-container" class="pt-20 relative z-10 overflow-hidden md:overflow-visible">
+
+        <section id="page-home" class="page-section active relative">
+            <div class="relative min-h-[95vh] flex items-center justify-center pt-10 pb-20 overflow-hidden z-10">
                 <video autoplay loop muted playsinline class="hero-video-bg">
                     <source src="https://cdn.pixabay.com/video/2023/10/22/186001-876934446_large.mp4" type="video/mp4">
                 </video>
@@ -336,17 +376,29 @@
 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     
-                    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.1] drop-shadow-2xl">
-                        Level Up Your <br/>
-                        <span class="animated-gradient">Digital Superpowers</span>
-                    </h1>
+                    <div class="relative inline-block w-full max-w-4xl mx-auto py-12" id="hero-text-wrapper">
+                        
+                        <i class="hero-bg-icon fas fa-gamepad text-brand-gold text-5xl absolute top-[10%] -left-4 md:-left-12 opacity-0 drop-shadow-[0_0_15px_rgba(255,215,0,0.8)] z-[-1]"></i>
+                        <i class="hero-bg-icon fas fa-laptop-code text-brand-cyan text-5xl absolute top-[5%] right-2 md:-right-8 opacity-0 drop-shadow-[0_0_15px_rgba(6,182,212,0.8)] z-[-1]"></i>
+                        <i class="hero-bg-icon fas fa-paint-brush text-brand-purple text-4xl absolute top-[40%] -left-8 md:-left-20 opacity-0 drop-shadow-[0_0_15px_rgba(139,92,246,0.8)] z-[-1]"></i>
+                        <i class="hero-bg-icon fas fa-cube text-blue-400 text-5xl absolute top-[40%] -right-8 md:-right-24 opacity-0 drop-shadow-[0_0_15px_rgba(96,165,250,0.8)] z-[-1]"></i>
+                        <i class="hero-bg-icon fas fa-film text-brand-pink text-6xl absolute -bottom-4 left-4 md:left-[5%] opacity-0 drop-shadow-[0_0_15px_rgba(236,72,153,0.8)] z-[-1]"></i>
+                        <i class="hero-bg-icon fas fa-hashtag text-green-400 text-4xl absolute bottom-12 -right-4 md:-right-16 opacity-0 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)] z-[-1]"></i>
+                        <i class="hero-bg-icon fas fa-masks-theater text-yellow-400 text-5xl absolute -top-4 left-[30%] opacity-0 drop-shadow-[0_0_15px_rgba(250,204,21,0.8)] z-[-1]"></i>
+                        <i class="hero-bg-icon fas fa-bug text-red-500 text-5xl absolute -bottom-16 right-[5%] opacity-0 drop-shadow-[0_0_15px_rgba(239,68,68,0.8)] z-[-1]"></i>
+
+                        <h1 class="font-heroText text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 drop-shadow-2xl relative z-10 reveal-up">
+                            Level Up Your <br/>
+                            <span class="animated-gradient">Digital Superpowers</span>
+                        </h1>
+                        
+                        <p class="mt-4 text-lg sm:text-xl md:text-2xl text-slate-200 mx-auto mb-12 font-medium leading-relaxed drop-shadow-lg relative z-10 reveal-up delay-100">
+                            SuperNayak Studio bridges visionary game development with elite digital services. From breathtaking 3D worlds to high-converting UI architecture, we build your future.
+                        </p>
+                    </div>
                     
-                    <p class="mt-4 max-w-3xl text-xl md:text-2xl text-slate-200 mx-auto mb-12 font-medium leading-relaxed drop-shadow-lg">
-                        SuperNayak Studio bridges visionary game development with elite digital services. From breathtaking 3D worlds to high-converting UI architecture, we build your future.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                        <button onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})" class="btn-magnetic text-white px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/20 transition-all">
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center reveal-up delay-200">
+                        <button onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})" class="btn-magnetic btn-glow text-white px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto transition-all">
                             Explore Services
                         </button>
                         <button onclick="navigateTo('page-portfolio')" class="btn-magnetic px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(255,215,0,0.3)]">
@@ -354,41 +406,41 @@
                         </button>
                     </div>
 
-                    <div class="mt-20 flex flex-wrap justify-center gap-4 opacity-90">
-                        <a href="https://youtube.com/@SuperNayakStudio" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-red-500 hover:scale-110 hover:shadow-[0_0_15px_red] transition-all text-xl"><i class="fab fa-youtube"></i></a>
-                        <a href="https://instagram.com/supernayakstudio" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-pink-500 hover:scale-110 hover:shadow-[0_0_15px_#EC4899] transition-all text-xl"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com/SuperNayak_" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-brand-cyan hover:scale-110 transition-all text-xl"><i class="fab fa-twitter"></i></a>
-                        <a href="https://discord.gg/D4cqVDfDhX" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-indigo-400 hover:scale-110 transition-all text-xl"><i class="fab fa-discord"></i></a>
-                        <a href="https://github.com/SuperNayakStudio" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-white hover:scale-110 transition-all text-xl"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/company/supernayak-studio" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-blue-500 hover:scale-110 transition-all text-xl"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://artstation.com/SuperNayak" target="_blank" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:text-brand-cyan hover:scale-110 transition-all text-xl"><i class="fab fa-artstation"></i></a>
+                    <div class="mt-16 md:mt-20 flex flex-wrap justify-center gap-4 opacity-90 reveal-up delay-300">
+                        <a href="https://youtube.com/@SuperNayakStudio" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-panel flex items-center justify-center hover:text-red-500 hover:scale-110 hover:shadow-[0_0_15px_red] transition-all text-lg md:text-xl"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/supernayakstudio" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-panel flex items-center justify-center hover:text-pink-500 hover:scale-110 hover:shadow-[0_0_15px_#EC4899] transition-all text-lg md:text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/SuperNayak_" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-panel flex items-center justify-center hover:text-brand-cyan hover:scale-110 transition-all text-lg md:text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="https://discord.gg/D4cqVDfDhX" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-panel flex items-center justify-center hover:text-indigo-400 hover:scale-110 transition-all text-lg md:text-xl"><i class="fab fa-discord"></i></a>
+                        <a href="https://github.com/SuperNayakStudio" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-panel flex items-center justify-center hover:text-white hover:scale-110 transition-all text-lg md:text-xl"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/company/supernayak-studio" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-panel flex items-center justify-center hover:text-blue-500 hover:scale-110 transition-all text-lg md:text-xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://artstation.com/SuperNayak" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-panel flex items-center justify-center hover:text-brand-cyan hover:scale-110 transition-all text-lg md:text-xl"><i class="fab fa-artstation"></i></a>
                     </div>
                 </div>
             </div>
 
-            <section class="py-24 relative overflow-hidden bg-brand-card/50 border-y border-white/5">
+            <section class="py-20 md:py-24 relative overflow-hidden bg-brand-card/50 border-y border-white/5">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="glass-panel p-12 md:p-20 relative overflow-hidden group border-l-4 border-brand-gold shadow-[0_0_30px_rgba(255,215,0,0.1)]">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-                            <div>
+                    <div class="glass-panel p-8 md:p-20 relative overflow-hidden group border-l-4 border-brand-gold shadow-[0_0_30px_rgba(255,215,0,0.1)] reveal-up">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
+                            <div class="reveal-left delay-100">
                                 <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Driven by <span class="text-brand-gold">Vision</span></h2>
                                 <p class="text-slate-200 text-lg mb-6 leading-relaxed">
                                     Led by Founder & CEO <strong class="animated-gradient font-display text-3xl block mt-2">Sahil Mandavkar</strong>
                                 </p>
-                                <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                                <p class="text-slate-300 text-base md:text-lg mb-8 leading-relaxed">
                                     Operating out of Thane, Maharashtra, SuperNayak Studio isn't just an agency. We are a collective of hardcore gamers, creative artists, and technical prodigies delivering uncompromised quality globally. Whether you need a game tested, a brand visualized, or a platform developed—we deliver on a world-class level.
                                 </p>
                                 <button onclick="navigateTo('page-about')" class="text-brand-gold font-bold flex items-center gap-2 hover:gap-4 transition-all">
                                     Discover Our Full Story <i class="fas fa-arrow-right"></i>
                                 </button>
                             </div>
-                            <div class="relative">
+                            <div class="relative reveal-right delay-200">
                                 <div class="aspect-video rounded-2xl overflow-hidden relative border border-brand-gold/30 shadow-2xl shadow-brand-gold/20 group-hover:shadow-brand-gold/40 transition-shadow duration-500">
                                     <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Studio Base">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-                                    <div class="absolute bottom-6 left-6">
-                                        <h4 class="font-display font-bold text-white text-2xl">Thane HQ</h4>
-                                        <p class="text-brand-gold text-sm font-bold tracking-widest uppercase mt-1">Global Delivery Hub</p>
+                                    <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+                                        <h4 class="font-display font-bold text-white text-xl md:text-2xl">Thane HQ</h4>
+                                        <p class="text-brand-gold text-xs md:text-sm font-bold tracking-widest uppercase mt-1">Global Delivery Hub</p>
                                     </div>
                                 </div>
                             </div>
@@ -397,52 +449,52 @@
                 </div>
             </section>
 
-            <section class="py-24 bg-[#05050A]">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-20">
-                        <h2 class="font-display text-4xl md:text-6xl font-bold mb-4">The <span class="animated-gradient">Blueprint</span></h2>
-                        <p class="text-slate-400 text-lg max-w-2xl mx-auto font-bold">How we work across the timeline to complete the project</p>
+            <section class="py-20 md:py-24 bg-[#05050A]">
+                <div class="max-w-[100vw] overflow-hidden">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16 md:mb-20">
+                        <h2 class="font-display text-4xl md:text-6xl font-bold mb-4 reveal-up">The <span class="animated-gradient">Process</span></h2>
+                        <p class="text-slate-400 text-lg max-w-2xl mx-auto font-bold reveal-up delay-100">How we work across the timeline to complete the project</p>
                     </div>
 
-                    <div class="relative py-20 overflow-x-auto lg:overflow-visible hide-scrollbar" id="interactive-process">
-                        <div class="min-w-[800px] relative">
-                            <div class="timeline-container absolute top-1/2 left-0 -translate-y-1/2" id="timeline-track">
+                    <div class="relative py-10 md:py-20 overflow-x-auto hide-scrollbar w-full reveal-scale delay-200" id="interactive-process">
+                        <div class="min-w-[800px] w-full max-w-7xl mx-auto relative px-4 sm:px-6 lg:px-8">
+                            <div class="timeline-container absolute top-1/2 left-0 md:left-8 right-0 md:right-8 -translate-y-1/2" id="timeline-track">
                                 <div class="timeline-line-glow" id="timeline-glow">
                                     <i class="fas fa-rocket rocket-tracker"></i>
                                 </div>
                             </div>
                             
-                            <div class="relative z-10 flex justify-between items-center px-4 md:px-12">
+                            <div class="relative z-10 flex justify-between items-center px-2 md:px-12">
                                 <div class="timeline-step text-center w-32" data-index="0">
-                                    <div class="w-20 h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-3xl text-brand-cyan mb-4 shadow-lg shadow-cyan-500/20">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-2xl md:text-3xl text-brand-cyan mb-4 shadow-lg shadow-cyan-500/20">
                                         <i class="fas fa-lightbulb"></i>
                                     </div>
-                                    <h4 class="font-display font-bold text-xl text-white">Discovery</h4>
-                                    <p class="text-sm text-slate-400 mt-2">Ideation & Scope</p>
+                                    <h4 class="font-display font-bold text-lg md:text-xl text-white">Discovery</h4>
+                                    <p class="text-xs md:text-sm text-slate-400 mt-2">Ideation & Scope</p>
                                 </div>
                                 
                                 <div class="timeline-step text-center w-32" data-index="1">
-                                    <div class="w-20 h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-3xl text-brand-purple mb-4 shadow-lg shadow-purple-500/20">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-2xl md:text-3xl text-brand-purple mb-4 shadow-lg shadow-purple-500/20">
                                         <i class="fas fa-pencil-ruler"></i>
                                     </div>
-                                    <h4 class="font-display font-bold text-xl text-white">Creation</h4>
-                                    <p class="text-sm text-slate-400 mt-2">Design & Art</p>
+                                    <h4 class="font-display font-bold text-lg md:text-xl text-white">Creation</h4>
+                                    <p class="text-xs md:text-sm text-slate-400 mt-2">Design & Art</p>
                                 </div>
                                 
                                 <div class="timeline-step text-center w-32" data-index="2">
-                                    <div class="w-20 h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-3xl text-brand-pink mb-4 shadow-lg shadow-pink-500/20">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-2xl md:text-3xl text-brand-pink mb-4 shadow-lg shadow-pink-500/20">
                                         <i class="fas fa-code"></i>
                                     </div>
-                                    <h4 class="font-display font-bold text-xl text-white">Engineering</h4>
-                                    <p class="text-sm text-slate-400 mt-2">Code & Mechanics</p>
+                                    <h4 class="font-display font-bold text-lg md:text-xl text-white">Engineering</h4>
+                                    <p class="text-xs md:text-sm text-slate-400 mt-2">Code & Mechanics</p>
                                 </div>
                                 
                                 <div class="timeline-step text-center w-32" data-index="3">
-                                    <div class="w-20 h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-3xl text-brand-gold mb-4 shadow-lg shadow-yellow-500/30">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto glass-panel rounded-full flex items-center justify-center text-2xl md:text-3xl text-brand-gold mb-4 shadow-lg shadow-yellow-500/30">
                                         <i class="fas fa-space-shuttle transform -rotate-90"></i>
                                     </div>
-                                    <h4 class="font-display font-bold text-xl text-white">Launch</h4>
-                                    <p class="text-sm text-slate-400 mt-2">QA & Deployment</p>
+                                    <h4 class="font-display font-bold text-lg md:text-xl text-white">Launch</h4>
+                                    <p class="text-xs md:text-sm text-slate-400 mt-2">QA & Deploy</p>
                                 </div>
                             </div>
                         </div>
@@ -450,374 +502,500 @@
                 </div>
             </section>
 
-            <section id="services-grid" class="py-32 relative">
+            <section id="services-grid" class="py-20 md:py-32 relative">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                        <div>
-                            <h2 class="font-display text-5xl md:text-7xl font-bold mb-4">Digital <br/><span class="text-brand-purple">Superpowers</span></h2>
-                        </div>
-                        <p class="text-slate-300 text-xl max-w-lg font-medium">Specialized solutions crafted to scale businesses, engage communities, and dominate your niche.</p>
+                    <div class="mb-12 md:mb-16 reveal-left">
+                        <h2 class="font-display text-4xl md:text-7xl font-bold mb-4">Digital <br/><span class="text-brand-purple">Superpowers</span></h2>
+                        <p class="text-slate-300 text-lg md:text-xl max-w-lg font-medium mt-4 md:mt-6">Specialized solutions crafted to scale businesses, engage communities, and dominate your niche.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-web')">
-                            <div class="text-5xl text-brand-cyan mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-code"></i></div>
-                            <h3 class="font-display text-3xl font-bold text-white mb-4">Web Design & Dev</h3>
-                            <p class="text-slate-400 mb-8">High-performance architecture, immersive UI/UX, and conversion-focused multi-page structures.</p>
-                            <span class="text-brand-cyan font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                        <div class="glass-panel p-8 hover-card group cursor-pointer border border-brand-gold/20 reveal-up" onclick="navigateTo('page-gamedev')">
+                            <div class="text-4xl md:text-5xl text-brand-gold mb-6 transform group-hover:scale-110 transition-transform"><i class="fas fa-gamepad"></i></div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-3">Game Design & Dev</h3>
+                            <p class="text-slate-400 text-sm mb-6">From initial scratch idea to final launch. We construct full game systems, mechanics, and worlds.</p>
+                            <span class="text-brand-gold font-bold uppercase tracking-wider text-xs flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
                         </div>
 
-                        <div class="glass-panel p-10 hover-card group cursor-pointer border border-brand-purple/20" onclick="navigateTo('page-3d')">
-                            <div class="text-5xl text-brand-purple mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-cube"></i></div>
-                            <h3 class="font-display text-3xl font-bold text-white mb-4">2D/3D Art & Assets</h3>
-                            <p class="text-slate-400 mb-8">Custom textures, printable STLs, stylized illustrations, and engine-ready optimization.</p>
-                            <span class="text-brand-purple font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        <div class="glass-panel p-8 hover-card group cursor-pointer border border-brand-cyan/20 reveal-up delay-100" onclick="navigateTo('page-web')">
+                            <div class="text-4xl md:text-5xl text-brand-cyan mb-6 transform group-hover:scale-110 transition-transform"><i class="fas fa-laptop-code"></i></div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-3">Web Design & Dev</h3>
+                            <p class="text-slate-400 text-sm mb-6">High-performance architecture, immersive UI/UX for brands, stores, and game portals.</p>
+                            <span class="text-brand-cyan font-bold uppercase tracking-wider text-xs flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
                         </div>
 
-                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-video')">
-                            <div class="text-5xl text-brand-pink mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-film"></i></div>
-                            <h3 class="font-display text-3xl font-bold text-white mb-4">Video Editing</h3>
-                            <p class="text-slate-400 mb-8">Cinematic visual storytelling, advanced motion graphics, and algorithmic retention editing.</p>
-                            <span class="text-brand-pink font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        <div class="glass-panel p-8 hover-card group cursor-pointer border border-brand-purple/20 reveal-up delay-200" onclick="navigateTo('page-2d')">
+                            <div class="text-4xl md:text-5xl text-brand-purple mb-6 transform group-hover:scale-110 transition-transform"><i class="fas fa-paint-brush"></i></div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-3">2D Art & Design</h3>
+                            <p class="text-slate-400 text-sm mb-6">Thumbnails, covers, posters, cards, graphic design, and dynamic game/brand assets.</p>
+                            <span class="text-brand-purple font-bold uppercase tracking-wider text-xs flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
                         </div>
 
-                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-social')">
-                            <div class="text-5xl text-green-400 mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-hashtag"></i></div>
-                            <h3 class="font-display text-3xl font-bold text-white mb-4">Social Media Mgt</h3>
-                            <p class="text-slate-400 mb-8">Data-driven growth, viral content strategy, and hardcore community building.</p>
-                            <span class="text-green-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        <div class="glass-panel p-8 hover-card group cursor-pointer border border-blue-400/20 reveal-up delay-300" onclick="navigateTo('page-3d')">
+                            <div class="text-4xl md:text-5xl text-blue-400 mb-6 transform group-hover:scale-110 transition-transform"><i class="fas fa-cube"></i></div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-3">3D Art & Assets</h3>
+                            <p class="text-slate-400 text-sm mb-6">Printing STLs, architecture showcase, prototypes, rigging, rendering, and texturing.</p>
+                            <span class="text-blue-400 font-bold uppercase tracking-wider text-xs flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
                         </div>
 
-                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-voice')">
-                            <div class="text-5xl text-yellow-400 mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-microphone-lines"></i></div>
-                            <h3 class="font-display text-3xl font-bold text-white mb-4">Voiceover</h3>
-                            <p class="text-slate-400 mb-8">Broadcast-quality audio, character acting, and commanding brand narration.</p>
-                            <span class="text-yellow-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        <div class="glass-panel p-8 hover-card group cursor-pointer border border-brand-pink/20 reveal-up" onclick="navigateTo('page-video')">
+                            <div class="text-4xl md:text-5xl text-brand-pink mb-6 transform group-hover:scale-110 transition-transform"><i class="fas fa-film"></i></div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-3">Video & VFX</h3>
+                            <p class="text-slate-400 text-sm mb-6">Animation, YouTube edits, showreels, cinematic visuals, and advanced motion tracking.</p>
+                            <span class="text-brand-pink font-bold uppercase tracking-wider text-xs flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
                         </div>
 
-                        <div class="glass-panel p-10 hover-card group cursor-pointer" onclick="navigateTo('page-qa')">
-                            <div class="text-5xl text-red-500 mb-8 transform group-hover:scale-110 transition-transform"><i class="fas fa-bug"></i></div>
-                            <h3 class="font-display text-3xl font-bold text-white mb-4">Game QA Testing</h3>
-                            <p class="text-slate-400 mb-8">Rigorous bug hunting, mechanical balancing, and edge-case stress testing.</p>
-                            <span class="text-red-500 font-bold uppercase tracking-wider text-sm flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        <div class="glass-panel p-8 hover-card group cursor-pointer border border-green-400/20 reveal-up delay-100" onclick="navigateTo('page-social')">
+                            <div class="text-4xl md:text-5xl text-green-400 mb-6 transform group-hover:scale-110 transition-transform"><i class="fas fa-hashtag"></i></div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-3">Social Media Mgt</h3>
+                            <p class="text-slate-400 text-sm mb-6">Data-driven growth across YouTube, Instagram, X, Pinterest, LinkedIn, and Discord.</p>
+                            <span class="text-green-400 font-bold uppercase tracking-wider text-xs flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+
+                        <div class="glass-panel p-8 hover-card group cursor-pointer border border-yellow-400/20 reveal-up delay-200" onclick="navigateTo('page-performing')">
+                            <div class="text-4xl md:text-5xl text-yellow-400 mb-6 transform group-hover:scale-110 transition-transform"><i class="fas fa-masks-theater"></i></div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-3">Performing Artists</h3>
+                            <p class="text-slate-400 text-sm mb-6">Dance choreography, vocalists, instrumentalists, acting, voiceovers, and mimicry.</p>
+                            <span class="text-yellow-400 font-bold uppercase tracking-wider text-xs flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+
+                        <div class="glass-panel p-8 hover-card group cursor-pointer border border-red-500/20 reveal-up delay-300" onclick="navigateTo('page-qa')">
+                            <div class="text-4xl md:text-5xl text-red-500 mb-6 transform group-hover:scale-110 transition-transform"><i class="fas fa-bug"></i></div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-3">Game QA Testing</h3>
+                            <p class="text-slate-400 text-sm mb-6">Rigorous bug hunting, mechanical balancing, and edge-case stress testing.</p>
+                            <span class="text-red-500 font-bold uppercase tracking-wider text-xs flex items-center gap-2">Explore details <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i></span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="py-32 relative overflow-hidden bg-[#020202]">
+            <section class="py-20 md:py-32 relative overflow-hidden bg-[#020202]">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div class="text-center mb-16">
-                        <span class="inline-block px-4 py-1 rounded-full bg-red-500/20 text-red-500 font-bold tracking-widest text-sm mb-4 border border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">STUDIO ORIGINALS</span>
-                        <h2 class="font-display text-6xl md:text-8xl font-bold mb-6">Upcoming <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600">Titles</span></h2>
-                        <p class="text-slate-300 text-xl max-w-2xl mx-auto font-medium">We don't just service the industry; we define it. Discover the immersive worlds currently in production.</p>
+                    <div class="text-center mb-12 md:mb-16 reveal-scale">
+                        <span class="inline-block px-4 py-1 rounded-full bg-red-500/20 text-red-500 font-bold tracking-widest text-xs md:text-sm mb-4 border border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">STUDIO ORIGINALS</span>
+                        <h2 class="font-display text-4xl md:text-8xl font-bold mb-6">Upcoming <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600">Titles</span></h2>
+                        <p class="text-slate-300 text-base md:text-xl max-w-2xl mx-auto font-medium">We don't just service the industry; we define it. Discover the immersive worlds currently in production.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div class="glass-panel overflow-hidden group border-red-900/30 hover:border-red-500/70 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] transition-all">
-                            <div class="h-80 relative overflow-hidden bg-black flex items-center justify-center">
-                                <i class="fas fa-skull text-8xl text-red-900/50 group-hover:scale-125 transition-transform duration-700 group-hover:text-red-600/60 drop-shadow-[0_0_20px_rgba(220,38,38,0.5)]"></i>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        <div class="glass-panel overflow-hidden group border-red-900/30 hover:border-red-500/70 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] transition-all reveal-left">
+                            <div class="h-64 md:h-80 relative overflow-hidden bg-black flex items-center justify-center">
+                                <i class="fas fa-skull text-7xl md:text-8xl text-red-900/50 group-hover:scale-125 transition-transform duration-700 group-hover:text-red-600/60 drop-shadow-[0_0_20px_rgba(220,38,38,0.5)]"></i>
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a12] to-transparent"></div>
                             </div>
-                            <div class="p-10 relative z-10 -mt-20">
-                                <h3 class="font-display text-4xl font-bold text-white mb-2">Krodh Room</h3>
-                                <div class="flex gap-2 mb-6">
-                                    <span class="px-3 py-1 bg-red-500/10 rounded text-xs font-bold text-red-400">3D SINGLEPLAYER</span>
-                                    <span class="px-3 py-1 bg-white/10 rounded text-xs font-bold text-slate-300">PARANORMAL RAGE</span>
+                            <div class="p-6 md:p-10 relative z-10 -mt-16 md:-mt-20">
+                                <h3 class="font-display text-3xl md:text-4xl font-bold text-white mb-2">Krodh Room</h3>
+                                <div class="flex gap-2 mb-6 flex-wrap">
+                                    <span class="px-3 py-1 bg-red-500/10 rounded text-[10px] md:text-xs font-bold text-red-400">3D SINGLEPLAYER</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded text-[10px] md:text-xs font-bold text-slate-300">PARANORMAL RAGE</span>
                                 </div>
-                                <p class="text-slate-400 text-lg mb-8">An adrenaline-fueled test of reflexes and rage management mixed with a dark paranormal twist. Survive the room, conquer the chaos.</p>
-                                <button class="text-white font-bold border-b-2 border-red-500 pb-1 hover:text-red-500 hover:tracking-wide transition-all">Wishlist on Steam <i class="fab fa-steam ml-1"></i></button>
+                                <p class="text-slate-400 text-sm md:text-lg mb-8">An adrenaline-fueled test of reflexes and rage management mixed with a dark paranormal twist. Survive the room, conquer the chaos.</p>
+                                <button class="text-white font-bold border-b-2 border-red-500 pb-1 hover:text-red-500 hover:tracking-wide transition-all text-sm md:text-base">Coming Soon <i class="fas fa-clock ml-1"></i></button>
                             </div>
                         </div>
 
-                        <div class="glass-panel overflow-hidden group border-orange-900/30 hover:border-orange-500/70 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all">
-                            <div class="h-80 relative overflow-hidden bg-black flex items-center justify-center">
-                                <i class="fas fa-running text-8xl text-orange-900/50 group-hover:scale-125 transition-transform duration-700 group-hover:text-orange-500/60 drop-shadow-[0_0_20px_rgba(249,115,22,0.5)]"></i>
+                        <div class="glass-panel overflow-hidden group border-orange-900/30 hover:border-orange-500/70 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all reveal-right">
+                            <div class="h-64 md:h-80 relative overflow-hidden bg-black flex items-center justify-center">
+                                <i class="fas fa-running text-7xl md:text-8xl text-orange-900/50 group-hover:scale-125 transition-transform duration-700 group-hover:text-orange-500/60 drop-shadow-[0_0_20px_rgba(249,115,22,0.5)]"></i>
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a12] to-transparent"></div>
                             </div>
-                            <div class="p-10 relative z-10 -mt-20">
-                                <h3 class="font-display text-4xl font-bold text-white mb-2">Wari</h3>
-                                <div class="flex gap-2 mb-6">
-                                    <span class="px-3 py-1 bg-orange-500/10 rounded text-xs font-bold text-orange-400">2D ENDLESS RUNNER</span>
-                                    <span class="px-3 py-1 bg-white/10 rounded text-xs font-bold text-slate-300">MYTHOLOGICAL</span>
+                            <div class="p-6 md:p-10 relative z-10 -mt-16 md:-mt-20">
+                                <h3 class="font-display text-3xl md:text-4xl font-bold text-white mb-2">Wari</h3>
+                                <div class="flex gap-2 mb-6 flex-wrap">
+                                    <span class="px-3 py-1 bg-orange-500/10 rounded text-[10px] md:text-xs font-bold text-orange-400">2D ENDLESS RUNNER</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded text-[10px] md:text-xs font-bold text-slate-300">MYTHOLOGICAL</span>
                                 </div>
-                                <p class="text-slate-400 text-lg mb-8">A deep, culturally rich 2D runner based on a mythological rally. Test your endurance and spirit through breathtaking traditional landscapes.</p>
-                                <button class="text-white font-bold border-b-2 border-orange-500 pb-1 hover:text-orange-500 hover:tracking-wide transition-all">Learn More <i class="fas fa-arrow-right ml-1"></i></button>
+                                <p class="text-slate-400 text-sm md:text-lg mb-8">A deep, culturally rich 2D runner based on a mythological rally. Test your endurance and spirit through breathtaking traditional landscapes.</p>
+                                <button class="text-white font-bold border-b-2 border-orange-500 pb-1 hover:text-orange-500 hover:tracking-wide transition-all text-sm md:text-base">Coming Soon <i class="fas fa-clock ml-1"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </section>
-
-        <section id="page-web" class="page-section hidden pt-10 pb-32">
+        
+        <section id="page-gamedev" class="page-section hidden pt-10 pb-32 relative">
+            <div class="service-bg-icon absolute right-[-5%] md:right-[5%] top-[0%] md:-top-[2%] text-[12rem] md:text-[25rem] text-brand-gold pointer-events-none z-[-1] transition-all duration-300 opacity-0">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
                 
-                <div class="mb-16">
+                <div class="mb-12 md:mb-16 reveal-scale">
+                    <div class="inline-block p-4 rounded-2xl bg-brand-gold/10 mb-6 shadow-[0_0_30px_rgba(255,215,0,0.2)] border border-brand-gold/30">
+                        <i class="fas fa-gamepad text-5xl md:text-6xl text-brand-gold"></i>
+                    </div>
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">Full Game <br/>Design & <span class="text-brand-gold">Development</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">We handle the entire pipeline. From the initial spark of an idea to the final launch, we architect complete gaming experiences. Whether it's an indie title, a commercial gamification app, or a large-scale project, we bring immersive worlds to life.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
+                    <div class="glass-panel p-6 md:p-8 border-t-4 border-t-brand-gold hover-card reveal-up">
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Core Architecture & Mechanics</h4>
+                        <p class="text-slate-400 text-sm md:text-base mb-6">Building rock-solid foundations for gameplay loops, physics, and progression systems optimized for target platforms.</p>
+                    </div>
+                    <div class="glass-panel p-6 md:p-8 border-t-4 border-t-brand-purple hover-card reveal-up delay-100">
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Story & World Building</h4>
+                        <p class="text-slate-400 text-sm md:text-base mb-6">Crafting deep narratives, level design, and environmental storytelling that keeps players heavily invested.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center reveal-up delay-200">
+                    <a href="#contact-footer" onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg inline-block">Inquire About Game Dev</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-web" class="page-section hidden pt-10 pb-32 relative">
+            <div class="service-bg-icon absolute right-[-5%] md:right-[5%] top-[0%] md:-top-[2%] text-[12rem] md:text-[25rem] text-brand-cyan pointer-events-none z-[-1] transition-all duration-300 opacity-0">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="mb-12 md:mb-16 reveal-scale">
                     <div class="inline-block p-4 rounded-2xl bg-brand-cyan/10 mb-6 shadow-[0_0_30px_rgba(6,182,212,0.2)] border border-brand-cyan/30">
-                        <i class="fas fa-laptop-code text-6xl text-brand-cyan"></i>
+                        <i class="fas fa-laptop-code text-5xl md:text-6xl text-brand-cyan"></i>
                     </div>
-                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Website Design <br/>& <span class="text-brand-cyan">Development</span></h1>
-                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">Your website is your ultimate digital storefront. We build hyper-fast, aesthetically stunning, and conversion-optimized web platforms that turn casual scrollers into loyal, paying clients. Through advanced UI/UX and robust code engineering, we establish dominant authority for your brand in its niche.</p>
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">Website Design <br/>& <span class="text-brand-cyan">Development</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">Your website is your ultimate digital storefront. We build hyper-fast, aesthetically stunning, and conversion-optimized web platforms tailored for any business, corporate brand, or gaming studio to establish dominant authority.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                    <div class="glass-panel p-8 border-t-4 border-t-brand-cyan hover-card">
-                        <h4 class="text-2xl font-bold text-white mb-3">Corporate Platforms</h4>
-                        <p class="text-slate-400 mb-6">Highly credible multipage structures designed to build massive B2B/B2C trust. Seamless navigation, modern aesthetics, and clear funnels.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
+                    <div class="glass-panel p-6 md:p-8 border-t-4 border-t-brand-cyan hover-card reveal-up">
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Corporate Platforms</h4>
+                        <p class="text-slate-400 text-sm md:text-base mb-6">Highly credible multipage structures designed to build massive B2B/B2C trust. Seamless navigation, modern aesthetics, and clear funnels.</p>
                     </div>
-                    <div class="glass-panel p-8 border-t-4 border-t-brand-purple hover-card">
-                        <h4 class="text-2xl font-bold text-white mb-3">High-Conversion E-Commerce</h4>
-                        <p class="text-slate-400 mb-6">Lightning-fast shops that remove friction. Integrated checkouts, dynamic galleries, and psychological layout triggers to boost cart values.</p>
+                    <div class="glass-panel p-6 md:p-8 border-t-4 border-t-brand-purple hover-card reveal-up delay-100">
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3">High-Conversion E-Commerce</h4>
+                        <p class="text-slate-400 text-sm md:text-base mb-6">Lightning-fast shops that remove friction. Integrated checkouts, dynamic galleries, and psychological layout triggers to boost cart values.</p>
                     </div>
-                    <div class="glass-panel p-8 border-t-4 border-t-brand-pink hover-card">
-                        <h4 class="text-2xl font-bold text-white mb-3">Landing / Promo Pages</h4>
-                        <p class="text-slate-400 mb-6">Laser-focused, single-action pages crafted specifically for paid ads or game launches. Pure conversion architecture.</p>
+                    <div class="glass-panel p-6 md:p-8 border-t-4 border-t-brand-pink hover-card reveal-up delay-200">
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Landing / Promo Pages</h4>
+                        <p class="text-slate-400 text-sm md:text-base mb-6">Laser-focused, single-action pages crafted specifically for paid ads or game launches. Pure conversion architecture.</p>
                     </div>
-                    <div class="glass-panel p-8 border-t-4 border-t-green-400 hover-card">
-                        <h4 class="text-2xl font-bold text-white mb-3">Interactive Web Apps (SPA)</h4>
-                        <p class="text-slate-400 mb-6">App-like experiences directly in the browser. Using modern JS frameworks (React, Vanilla GSAP) for instantaneous state changes without reloads.</p>
+                    <div class="glass-panel p-6 md:p-8 border-t-4 border-t-green-400 hover-card reveal-up delay-300">
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Interactive Web Apps (SPA)</h4>
+                        <p class="text-slate-400 text-sm md:text-base mb-6">App-like experiences directly in the browser. Using modern JS frameworks for instantaneous state changes without reloads.</p>
                     </div>
                 </div>
                 
-                <div class="text-center">
-                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Inquire About Web Services</button>
+                <div class="text-center reveal-up">
+                    <a href="#contact-footer" onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg inline-block">Inquire About Web Services</a>
                 </div>
             </div>
         </section>
-
-        <section id="page-3d" class="page-section hidden pt-10 pb-32">
+        
+        <section id="page-2d" class="page-section hidden pt-10 pb-32 relative">
+            <div class="service-bg-icon absolute right-[-5%] md:right-[5%] top-[0%] md:-top-[2%] text-[12rem] md:text-[25rem] text-brand-purple pointer-events-none z-[-1] transition-all duration-300 opacity-0">
+                <i class="fas fa-paint-brush"></i>
+            </div>
+            
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
                 
-                <div class="mb-16">
+                <div class="mb-12 md:mb-16 reveal-scale">
                     <div class="inline-block p-4 rounded-2xl bg-brand-purple/10 mb-6 shadow-[0_0_30px_rgba(139,92,246,0.2)] border border-brand-purple/30">
-                        <i class="fas fa-cube text-6xl text-brand-purple"></i>
+                        <i class="fas fa-paint-brush text-5xl md:text-6xl text-brand-purple"></i>
                     </div>
-                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">2D/3D Art <br/>& <span class="text-brand-purple">Asset Creation</span></h1>
-                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">Visuals are the heartbeat of immersion. We forge striking 3D models, precise printable STL files, and engine-ready textures (including ultra-detailed Cerakote weapon finishes). Superior assets drastically escalate the market value of your IP.</p>
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">2D Art <br/>& <span class="text-brand-purple">Graphic Design</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">Visual branding across all formats. From high-CTR YouTube thumbnails to custom marketing collateral, we handle the aesthetic foundation that hooks viewers instantly.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <div class="glass-panel p-8 text-center hover-card">
-                        <div class="w-20 h-20 bg-brand-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-brand-purple"><i class="fas fa-shapes"></i></div>
-                        <h4 class="text-2xl font-bold text-white mb-4">3D Modeling & STL</h4>
-                        <p class="text-slate-400">High-poly sculpts to optimized low-poly meshes. We create pristine printable STLs and assets optimized for Unity and Unreal.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+                    <div class="glass-panel p-6 md:p-8 text-center hover-card reveal-up">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-brand-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl md:text-3xl text-brand-purple"><i class="fas fa-image"></i></div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-4">Content Graphics</h4>
+                        <p class="text-slate-400 text-sm md:text-base">Thumbnails, social media posts, engaging cards, and banners tailored for maximum click-through rates and brand presence.</p>
                     </div>
-                    <div class="glass-panel p-8 text-center hover-card">
-                        <div class="w-20 h-20 bg-brand-cyan/10 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-brand-cyan"><i class="fas fa-paint-roller"></i></div>
-                        <h4 class="text-2xl font-bold text-white mb-4">Advanced Texturing</h4>
-                        <p class="text-slate-400">PBR workflows, stylized hand-painted maps, and highly sought-after custom skin designs like hyper-realistic weapon finishes.</p>
+                    <div class="glass-panel p-6 md:p-8 text-center hover-card reveal-up delay-100">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-brand-pink/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl md:text-3xl text-brand-pink"><i class="fas fa-pen-nib"></i></div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-4">Print & Posters</h4>
+                        <p class="text-slate-400 text-sm md:text-base">High-resolution cover art, digital and physical posters, business branding, and striking promotional material.</p>
                     </div>
-                    <div class="glass-panel p-8 text-center hover-card">
-                        <div class="w-20 h-20 bg-brand-pink/10 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-brand-pink"><i class="fas fa-pen-nib"></i></div>
-                        <h4 class="text-2xl font-bold text-white mb-4">2D Art & Illustration</h4>
-                        <p class="text-slate-400">Breathtaking concept art, clean UI/UX elements for games, stylized character portraits, and vibrant key art for marketing.</p>
+                    <div class="glass-panel p-6 md:p-8 text-center hover-card reveal-up delay-200">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-brand-cyan/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl md:text-3xl text-brand-cyan"><i class="fas fa-layer-group"></i></div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-4">2D Game Assets</h4>
+                        <p class="text-slate-400 text-sm md:text-base">Clean UI/UX elements, stylized character portraits, and vibrant key art to elevate gaming or software interfaces.</p>
                     </div>
                 </div>
 
-                <div class="text-center">
-                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Commission Custom Art</button>
+                <div class="text-center reveal-up delay-300">
+                    <a href="#contact-footer" onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg inline-block">Commission 2D Art</a>
                 </div>
             </div>
         </section>
 
-        <section id="page-video" class="page-section hidden pt-10 pb-32">
+        <section id="page-3d" class="page-section hidden pt-10 pb-32 relative">
+            <div class="service-bg-icon absolute right-[-5%] md:right-[5%] top-[0%] md:-top-[2%] text-[12rem] md:text-[25rem] text-blue-400 pointer-events-none z-[-1] transition-all duration-300 opacity-0">
+                <i class="fas fa-cube"></i>
+            </div>
+            
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
                 
-                <div class="mb-12">
+                <div class="mb-12 md:mb-16 reveal-scale">
+                    <div class="inline-block p-4 rounded-2xl bg-blue-400/10 mb-6 shadow-[0_0_30px_rgba(96,165,250,0.2)] border border-blue-400/30">
+                        <i class="fas fa-cube text-5xl md:text-6xl text-blue-400"></i>
+                    </div>
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">3D Art <br/>& <span class="text-blue-400">Assets</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">We forge highly technical, visually stunning 3D models for digital and physical applications. From engine-ready character rigging to precise printable architectures.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+                    <div class="glass-panel p-6 md:p-8 text-center hover-card reveal-up">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-blue-400/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl md:text-3xl text-blue-400"><i class="fas fa-print"></i></div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-4">3D Printing & Prototyping</h4>
+                        <p class="text-slate-400 text-sm md:text-base">Custom assets meticulously designed and optimized as STL files for flawless 3D printing and physical prototyping.</p>
+                    </div>
+                    <div class="glass-panel p-6 md:p-8 text-center hover-card reveal-up delay-100">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-purple-400/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl md:text-3xl text-purple-400"><i class="fas fa-building"></i></div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-4">Architecture & Products</h4>
+                        <p class="text-slate-400 text-sm md:text-base">Hyper-realistic rendering and showcases for architectural visualization and high-end product demonstrations.</p>
+                    </div>
+                    <div class="glass-panel p-6 md:p-8 text-center hover-card reveal-up delay-200">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-cyan-400/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl md:text-3xl text-cyan-400"><i class="fas fa-project-diagram"></i></div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-4">Rigging & Animation</h4>
+                        <p class="text-slate-400 text-sm md:text-base">Comprehensive character and object rigging, texturing workflows, and animation ready for Unreal and Unity.</p>
+                    </div>
+                </div>
+
+                <div class="text-center reveal-up delay-300">
+                    <a href="#contact-footer" onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg inline-block">Commission 3D Assets</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-video" class="page-section hidden pt-10 pb-32 relative">
+            <div class="service-bg-icon absolute right-[-5%] md:right-[5%] top-[0%] md:-top-[2%] text-[12rem] md:text-[25rem] text-brand-pink pointer-events-none z-[-1] transition-all duration-300 opacity-0">
+                <i class="fas fa-film"></i>
+            </div>
+            
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                
+                <div class="mb-12 md:mb-16 reveal-scale">
                     <div class="inline-block p-4 rounded-2xl bg-brand-pink/10 mb-6 shadow-[0_0_30px_rgba(236,72,153,0.2)] border border-brand-pink/30">
-                        <i class="fas fa-film text-6xl text-brand-pink"></i>
+                        <i class="fas fa-film text-5xl md:text-6xl text-brand-pink"></i>
                     </div>
-                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Cinematic Video <br/>& <span class="text-brand-pink">Motion</span></h1>
-                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">Attention is the new currency. We deliver high-retention video editing optimized for modern social algorithms and stunning cinematic trailers that build massive hype for your products.</p>
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">Video Editing <br/>& <span class="text-brand-pink">Animation/VFX</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">Attention is the new currency. We deliver high-retention video editing, intricate VFX compositions, and stunning cinematic trailers tailored for brands, creators, and game studios.</p>
                 </div>
 
-                <div class="glass-panel p-10 mb-12 border border-brand-gold/30 relative overflow-hidden">
+                <div class="glass-panel p-6 md:p-10 mb-12 border border-brand-gold/30 relative overflow-hidden reveal-up">
                     <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-gold rounded-full blur-3xl opacity-10"></div>
-                    <h3 class="text-3xl font-display font-bold text-center text-brand-gold mb-10 relative z-10">Transparent Editing Tiers</h3>
+                    <h3 class="text-2xl md:text-3xl font-display font-bold text-center text-brand-gold mb-10 relative z-10">Transparent Editing Tiers</h3>
                     <div class="grid md:grid-cols-2 gap-8 relative z-10">
-                        <div class="bg-[#0a0a12]/80 p-8 rounded-2xl text-center border-t-2 border-brand-purple hover-card">
-                            <h4 class="text-2xl font-bold text-white mb-2">Pro Editor</h4>
-                            <p class="text-4xl font-black text-brand-gold mb-4">₹1,000 <span class="text-sm text-slate-400 font-normal">/ video</span></p>
-                            <p class="text-slate-300 font-medium">Standard fast-cut edits, hook optimization, basic motion graphics, and crisp color grading.</p>
+                        <div class="bg-[#0a0a12]/80 p-6 md:p-8 rounded-2xl text-center border-t-2 border-brand-purple hover-card">
+                            <h4 class="text-xl md:text-2xl font-bold text-white mb-2">Pro Editor</h4>
+                            <p class="text-3xl md:text-4xl font-black text-brand-gold mb-4">₹1,000 <span class="text-sm text-slate-400 font-normal">/ video</span></p>
+                            <p class="text-slate-300 font-medium text-sm md:text-base">Standard fast-cut edits, hook optimization, basic motion graphics, and crisp color grading for YouTube & socials.</p>
                         </div>
-                        <div class="bg-[#0a0a12]/80 p-8 rounded-2xl text-center border-t-2 border-brand-gold hover-card relative overflow-hidden shadow-[0_0_20px_rgba(255,215,0,0.15)]">
+                        <div class="bg-[#0a0a12]/80 p-6 md:p-8 rounded-2xl text-center border-t-2 border-brand-gold hover-card relative overflow-hidden shadow-[0_0_20px_rgba(255,215,0,0.15)]">
                             <div class="absolute top-4 right-[-35px] bg-brand-gold text-black text-xs font-black py-1 px-10 transform rotate-45 shadow-lg">POPULAR</div>
-                            <h4 class="text-2xl font-bold text-white mb-2">Full Service</h4>
-                            <p class="text-4xl font-black text-brand-gold mb-4">₹2,000 <span class="text-sm text-slate-400 font-normal">/ video</span></p>
-                            <p class="text-slate-300 font-medium">Premium SFX design, advanced VFX, cinematic transitions, full ideation, and deep retention metrics.</p>
+                            <h4 class="text-xl md:text-2xl font-bold text-white mb-2">Full Service VFX</h4>
+                            <p class="text-3xl md:text-4xl font-black text-brand-gold mb-4">₹2,000 <span class="text-sm text-slate-400 font-normal">/ video</span></p>
+                            <p class="text-slate-300 font-medium text-sm md:text-base">Premium SFX design, advanced Animation & VFX, cinematic transitions, full ideation, and deep retention metrics.</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                    <div class="glass-panel p-10 border-l-4 border-brand-pink hover-card">
-                        <h3 class="text-2xl font-display font-bold text-white mb-4">Game Trailers & Montages</h3>
-                        <p class="text-slate-400 text-lg">We take raw gameplay and turn it into a cinematic spectacle. Using advanced transitions, color grading, and heavy sound design to ensure your Steam page converts.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
+                    <div class="glass-panel p-8 md:p-10 border-l-4 border-brand-pink hover-card reveal-left">
+                        <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-4">YouTube Shows & Trailers</h3>
+                        <p class="text-slate-400 text-sm md:text-lg">We turn raw footage into cinematic spectacles. Whether it's a long-form YouTube show, a brand promo, or a game launch trailer—using heavy sound design and color grading to convert viewers.</p>
                     </div>
-                    <div class="glass-panel p-10 border-l-4 border-brand-cyan hover-card">
-                        <h3 class="text-2xl font-display font-bold text-white mb-4">Short-Form Content</h3>
-                        <p class="text-slate-400 text-lg">Fast-paced, hook-driven edits for Reels & Shorts with dynamic captions and motion graphics designed to exploit algorithm metrics.</p>
+                    <div class="glass-panel p-8 md:p-10 border-l-4 border-brand-cyan hover-card reveal-right">
+                        <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-4">Short-Form Content</h3>
+                        <p class="text-slate-400 text-sm md:text-lg">Fast-paced, hook-driven edits for Reels & Shorts with dynamic captions, animations, and visual triggers designed to exploit modern algorithm metrics.</p>
                     </div>
                 </div>
 
-                <div class="text-center">
-                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Boost Your Retention</button>
+                <div class="text-center reveal-up">
+                    <a href="#contact-footer" onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg inline-block">Boost Your Retention</a>
                 </div>
             </div>
         </section>
 
-        <section id="page-social" class="page-section hidden pt-10 pb-32">
+        <section id="page-social" class="page-section hidden pt-10 pb-32 relative">
+             <div class="service-bg-icon absolute right-[-5%] md:right-[5%] top-[0%] md:-top-[2%] text-[12rem] md:text-[25rem] text-green-400 pointer-events-none z-[-1] transition-all duration-300 opacity-0">
+                <i class="fas fa-hashtag"></i>
+            </div>
+            
              <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
                 
-                <div class="mb-16">
+                <div class="mb-12 md:mb-16 reveal-scale">
                     <div class="inline-block p-4 rounded-2xl bg-green-500/10 mb-6 shadow-[0_0_30px_rgba(34,197,94,0.2)] border border-green-500/30">
-                        <i class="fas fa-hashtag text-6xl text-green-400"></i>
+                        <i class="fas fa-hashtag text-5xl md:text-6xl text-green-400"></i>
                     </div>
-                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Social Media <br/>& <span class="text-green-400">Brand Growth</span></h1>
-                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">We don't just post; we engineer communities. Using data-driven growth strategies and viral content planning, we ensure your brand dominates the digital space across YouTube, Instagram, and X.</p>
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">Social Media <br/><span class="text-green-400">Management</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">We engineer communities for any brand or business. Using data-driven growth strategies, we ensure dominant presence across YouTube, Instagram, Facebook, X, Pinterest, LinkedIn, and Discord.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                    <div class="glass-panel p-8 hover-card border-t border-white/5">
-                        <i class="fas fa-chart-line text-4xl text-green-400 mb-6 block"></i>
-                        <h4 class="text-2xl font-bold text-white mb-3">Audience Engineering</h4>
-                        <p class="text-slate-400">Strategic content scheduling, trend hijacking, and community management to turn casual viewers into absolute loyalists.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
+                    <div class="glass-panel p-6 md:p-8 hover-card border-t border-white/5 reveal-up">
+                        <i class="fas fa-chart-line text-3xl md:text-4xl text-green-400 mb-6 block"></i>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Audience Engineering</h4>
+                        <p class="text-slate-400 text-sm md:text-base">Strategic content scheduling and trend hijacking across traditional socials (IG, FB, X, LinkedIn, Pinterest) to turn casual viewers into loyalists.</p>
                     </div>
-                    <div class="glass-panel p-8 hover-card border-t border-white/5">
-                        <i class="fas fa-bullhorn text-4xl text-green-400 mb-6 block"></i>
-                        <h4 class="text-2xl font-bold text-white mb-3">Campaign Execution</h4>
-                        <p class="text-slate-400">End-to-end management of game launches or product reveals. We coordinate the hype train so you can focus on building.</p>
+                    <div class="glass-panel p-6 md:p-8 hover-card border-t border-white/5 reveal-up delay-100">
+                        <i class="fas fa-server text-3xl md:text-4xl text-green-400 mb-6 block"></i>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Discord & Community</h4>
+                        <p class="text-slate-400 text-sm md:text-base">Full-scale Discord server creation, bot integration, and hardcore community management to keep your hardcore fans actively engaged.</p>
                     </div>
                 </div>
 
-                <div class="text-center">
-                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Scale Your Brand</button>
+                <div class="text-center reveal-up delay-200">
+                    <a href="#contact-footer" onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg inline-block">Scale Your Brand</a>
                 </div>
             </div>
         </section>
 
-        <section id="page-voice" class="page-section hidden pt-10 pb-32">
+        <section id="page-performing" class="page-section hidden pt-10 pb-32 relative">
+            <div class="service-bg-icon absolute right-[-5%] md:right-[5%] top-[0%] md:-top-[2%] text-[12rem] md:text-[25rem] text-yellow-400 pointer-events-none z-[-1] transition-all duration-300 opacity-0">
+                <i class="fas fa-masks-theater"></i>
+            </div>
+            
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
                 
-                <div class="mb-16">
+                <div class="mb-12 md:mb-16 reveal-scale">
                     <div class="inline-block p-4 rounded-2xl bg-yellow-400/10 mb-6 shadow-[0_0_30px_rgba(250,204,21,0.2)] border border-yellow-400/30">
-                        <i class="fas fa-microphone-lines text-6xl text-yellow-400"></i>
+                        <i class="fas fa-masks-theater text-5xl md:text-6xl text-yellow-400"></i>
                     </div>
-                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Professional <br/><span class="text-yellow-400">Voiceover</span></h1>
-                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">Give your project an unforgettable voice. We provide broadcast-quality audio delivered from an acoustically treated studio, perfect for games, commercials, and digital narration.</p>
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">Performing <br/><span class="text-yellow-400">Artists</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">Bring true human energy to your project, event, or digital product. We curate and provide elite performing artists across multiple disciplines to elevate your production.</p>
                 </div>
 
-                <div class="glass-panel p-12 bg-[url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000')] bg-cover bg-blend-overlay bg-[#0a0a12]/95 border border-yellow-400/30 mb-16 shadow-[0_0_40px_rgba(250,204,21,0.1)]">
-                    <h3 class="text-3xl font-display font-bold text-white mb-8">Capabilities</h3>
-                    <ul class="space-y-6 text-lg text-slate-300">
-                        <li class="flex items-start"><i class="fas fa-gamepad text-2xl text-yellow-400 mr-4 mt-1"></i> <span><strong class="text-white text-xl block mb-1">Character Acting</strong> From gritty villains to heroic protagonists for indie and AA titles.</span></li>
-                        <li class="flex items-start"><i class="fas fa-tv text-2xl text-yellow-400 mr-4 mt-1"></i> <span><strong class="text-white text-xl block mb-1">Commercial Audio</strong> High-energy or warm, trustworthy tones for brand ads and YouTube sponsorships.</span></li>
-                        <li class="flex items-start"><i class="fas fa-book-open text-2xl text-yellow-400 mr-4 mt-1"></i> <span><strong class="text-white text-xl block mb-1">Narration</strong> Clear, articulate pacing for documentaries, tutorials, and corporate videos.</span></li>
-                    </ul>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
+                    <div class="glass-panel p-6 md:p-8 bg-[url('https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=600')] bg-cover bg-blend-overlay bg-[#0a0a12]/95 border border-yellow-400/30 shadow-[0_0_40px_rgba(250,204,21,0.1)] hover-card reveal-up">
+                        <i class="fas fa-microphone-lines text-2xl md:text-3xl text-yellow-400 mb-4 block"></i>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Voiceover & Audio</h3>
+                        <p class="text-slate-400 text-sm">Character acting, broadcast narration, commercial tones, beatboxing, and mimicry for games, films, and ads.</p>
+                    </div>
+
+                    <div class="glass-panel p-6 md:p-8 bg-[url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=600')] bg-cover bg-blend-overlay bg-[#0a0a12]/95 border border-yellow-400/30 shadow-[0_0_40px_rgba(250,204,21,0.1)] hover-card reveal-up delay-100">
+                        <i class="fas fa-shoe-prints text-2xl md:text-3xl text-yellow-400 mb-4 block"></i>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Dance & Choreography</h3>
+                        <p class="text-slate-400 text-sm">Wedding, Bollywood, Hip-Hop, Contemporary, House, B-Boying, and Folk. Available for shows, commercial shoots, events, competitions, and workshops.</p>
+                    </div>
+
+                    <div class="glass-panel p-6 md:p-8 bg-[url('https://images.unsplash.com/photo-1516280440502-65f5a5e319f3?q=80&w=600')] bg-cover bg-blend-overlay bg-[#0a0a12]/95 border border-yellow-400/30 shadow-[0_0_40px_rgba(250,204,21,0.1)] hover-card reveal-up delay-200">
+                        <i class="fas fa-guitar text-2xl md:text-3xl text-yellow-400 mb-4 block"></i>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Singing & Instrumentals</h3>
+                        <p class="text-slate-400 text-sm">Vocalists for tracks, game songs, shows, events, and rap. Instrument players (Drums, Piano, Guitar, Flute, and traditional Indian Folk instruments) for music production.</p>
+                    </div>
+
+                    <div class="glass-panel p-6 md:p-8 bg-[url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=600')] bg-cover bg-blend-overlay bg-[#0a0a12]/95 border border-yellow-400/30 shadow-[0_0_40px_rgba(250,204,21,0.1)] hover-card reveal-up delay-300">
+                        <i class="fas fa-video text-2xl md:text-3xl text-yellow-400 mb-4 block"></i>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Acting</h3>
+                        <p class="text-slate-400 text-sm">Professional actors available for commercial shoots, short films, live-action game stories, theater drama, shows, and events.</p>
+                    </div>
                 </div>
 
-                <div class="text-center">
-                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Inquire About Voice Services</button>
+                <div class="text-center reveal-up">
+                    <a href="#contact-footer" onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg inline-block">Hire Performing Artists</a>
                 </div>
             </div>
         </section>
 
-        <section id="page-qa" class="page-section hidden pt-10 pb-32">
+        <section id="page-qa" class="page-section hidden pt-10 pb-32 relative">
+            <div class="service-bg-icon absolute right-[-5%] md:right-[5%] top-[0%] md:-top-[2%] text-[12rem] md:text-[25rem] text-red-500 pointer-events-none z-[-1] transition-all duration-300 opacity-0">
+                <i class="fas fa-bug"></i>
+            </div>
+            
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
                 
-                <div class="mb-16">
+                <div class="mb-12 md:mb-16 reveal-scale">
                     <div class="inline-block p-4 rounded-2xl bg-red-500/10 mb-6 shadow-[0_0_30px_rgba(239,68,68,0.2)] border border-red-500/30">
-                        <i class="fas fa-bug text-6xl text-red-500"></i>
+                        <i class="fas fa-bug text-5xl md:text-6xl text-red-500"></i>
                     </div>
-                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Game Testing <br/>& <span class="text-red-500">QA Services</span></h1>
-                    <p class="text-xl text-slate-300 leading-relaxed max-w-4xl">A great game is instantly ruined by bad bugs. Our rigorous Game QA protects your studio's reputation. We stress-test mechanics, hunt edge cases, and ensure your launch is flawless to secure better reviews and revenue.</p>
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">Game Testing <br/>& <span class="text-red-500">QA Services</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">A great game is instantly ruined by bad bugs. Our rigorous Game QA protects your studio's reputation. We stress-test mechanics, hunt edge cases, and ensure your launch is flawless to secure better reviews and revenue.</p>
                 </div>
 
                 <div class="space-y-6 mb-16">
-                    <div class="glass-panel p-8 flex flex-col md:flex-row gap-8 items-center border-l-4 border-red-500 hover-card">
-                        <div class="w-20 h-20 shrink-0 bg-red-500/10 rounded-xl flex items-center justify-center text-4xl text-red-400"><i class="fas fa-cogs"></i></div>
+                    <div class="glass-panel p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center border-l-4 border-red-500 hover-card reveal-left">
+                        <div class="w-16 h-16 md:w-20 md:h-20 shrink-0 bg-red-500/10 rounded-xl flex items-center justify-center text-3xl md:text-4xl text-red-400"><i class="fas fa-cogs"></i></div>
                         <div>
-                            <h4 class="text-2xl font-bold text-white mb-2">Functional Stress Testing</h4>
-                            <p class="text-slate-400">Systematic play-throughs designed to break mechanics. We document collision errors, logic loops, and progression blockers with precision reporting.</p>
+                            <h4 class="text-xl md:text-2xl font-bold text-white mb-2">Functional Stress Testing</h4>
+                            <p class="text-slate-400 text-sm md:text-base">Systematic play-throughs designed to break mechanics. We document collision errors, logic loops, and progression blockers with precision reporting.</p>
                         </div>
                     </div>
-                    <div class="glass-panel p-8 flex flex-col md:flex-row gap-8 items-center border-l-4 border-orange-500 hover-card">
-                        <div class="w-20 h-20 shrink-0 bg-orange-500/10 rounded-xl flex items-center justify-center text-4xl text-orange-400"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="glass-panel p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center border-l-4 border-orange-500 hover-card reveal-right delay-100">
+                        <div class="w-16 h-16 md:w-20 md:h-20 shrink-0 bg-orange-500/10 rounded-xl flex items-center justify-center text-3xl md:text-4xl text-orange-400"><i class="fas fa-tachometer-alt"></i></div>
                         <div>
-                            <h4 class="text-2xl font-bold text-white mb-2">Mechanics & Balance</h4>
-                            <p class="text-slate-400">Analyzing the "fun factor". We test level design pacing, enemy AI scaling, and economy loops to ensure player retention.</p>
+                            <h4 class="text-xl md:text-2xl font-bold text-white mb-2">Mechanics & Balance</h4>
+                            <p class="text-slate-400 text-sm md:text-base">Analyzing the "fun factor". We test level design pacing, enemy AI scaling, and economy loops to ensure player retention.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="text-center">
-                    <button onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-full font-bold text-lg">Secure Your Launch</button>
+                <div class="text-center reveal-up">
+                    <a href="#contact-footer" onclick="document.getElementById('contact-footer').scrollIntoView()" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg inline-block">Secure Your Launch</a>
                 </div>
             </div>
         </section>
 
         <section id="page-portfolio" class="page-section hidden pt-10 pb-32">
              <div class="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
                 
-                <div class="text-center mb-16">
-                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Masterpieces in <span class="animated-gradient">Motion</span></h1>
-                    <p class="text-xl text-slate-300 max-w-2xl mx-auto font-medium">Witness the digital superpowers in action. High-end web architecture, cinematic edits, and stunning 3D art.</p>
+                <div class="text-center mb-12 md:mb-16 reveal-scale">
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">Masterpieces in <span class="animated-gradient">Motion</span></h1>
+                    <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-medium">Witness the digital superpowers in action. High-end web architecture, cinematic edits, and stunning 3D art.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[350px]">
-                    <div class="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden relative group border border-white/10 hover:border-brand-cyan/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[250px] md:auto-rows-[350px]">
+                    <div class="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden relative group border border-white/10 hover:border-brand-cyan/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] reveal-up">
                         <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Web Portal">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-sm">
-                            <i class="fas fa-link text-5xl text-brand-cyan drop-shadow-lg"></i>
+                            <i class="fas fa-link text-4xl md:text-5xl text-brand-cyan drop-shadow-lg"></i>
                         </div>
-                        <div class="absolute bottom-8 left-8">
-                            <span class="text-brand-cyan text-sm font-bold uppercase tracking-widest mb-2 block">Web Development</span>
-                            <h3 class="text-4xl font-display font-bold text-white">Glassmorphism Corporate UI</h3>
+                        <div class="absolute bottom-6 md:bottom-8 left-6 md:left-8 pr-4">
+                            <span class="text-brand-cyan text-xs md:text-sm font-bold uppercase tracking-widest mb-1 md:mb-2 block">Web Development</span>
+                            <h3 class="text-2xl md:text-4xl font-display font-bold text-white">Glassmorphism Corporate UI</h3>
                         </div>
                     </div>
                     
-                    <div class="rounded-3xl overflow-hidden relative group border border-white/10 hover:border-brand-purple/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+                    <div class="rounded-3xl overflow-hidden relative group border border-white/10 hover:border-blue-400/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(96,165,250,0.3)] reveal-up delay-100">
                         <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="3D Art">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-sm">
-                            <i class="fas fa-search-plus text-4xl text-brand-purple drop-shadow-lg"></i>
+                            <i class="fas fa-search-plus text-3xl md:text-4xl text-blue-400 drop-shadow-lg"></i>
                         </div>
-                        <div class="absolute bottom-6 left-6">
-                            <span class="text-brand-purple text-xs font-bold uppercase tracking-widest mb-1 block">3D Modeling</span>
-                            <h3 class="text-2xl font-display font-bold text-white">Custom Printable STLs</h3>
+                        <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+                            <span class="text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1 block">3D Modeling</span>
+                            <h3 class="text-xl md:text-2xl font-display font-bold text-white">Custom Printable STLs</h3>
                         </div>
                     </div>
 
-                    <div class="rounded-3xl overflow-hidden relative group border border-white/10 hover:border-green-400/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+                    <div class="rounded-3xl overflow-hidden relative group border border-white/10 hover:border-green-400/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.3)] reveal-up delay-200">
                         <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Social Media">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-sm">
-                            <i class="fas fa-hashtag text-4xl text-green-400 drop-shadow-lg"></i>
+                            <i class="fas fa-hashtag text-3xl md:text-4xl text-green-400 drop-shadow-lg"></i>
                         </div>
-                        <div class="absolute bottom-6 left-6">
-                            <span class="text-green-400 text-xs font-bold uppercase tracking-widest mb-1 block">Social Media</span>
-                            <h3 class="text-xl font-display font-bold text-white">Viral Algorithm Strategy</h3>
+                        <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+                            <span class="text-green-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1 block">Social Media</span>
+                            <h3 class="text-lg md:text-xl font-display font-bold text-white">Viral Algorithm Strategy</h3>
                         </div>
                     </div>
 
-                    <div class="md:col-span-2 rounded-3xl overflow-hidden relative group border border-white/10 hover:border-brand-pink/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
+                    <div class="md:col-span-2 rounded-3xl overflow-hidden relative group border border-white/10 hover:border-brand-pink/50 transition-colors cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] reveal-up delay-300">
                         <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1000&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Video Editing">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
                          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-sm">
-                            <i class="fas fa-play-circle text-6xl text-brand-pink drop-shadow-lg"></i>
+                            <i class="fas fa-play-circle text-5xl md:text-6xl text-brand-pink drop-shadow-lg"></i>
                         </div>
-                        <div class="absolute bottom-6 left-6">
-                            <span class="text-brand-pink text-sm font-bold uppercase tracking-widest mb-2 block">Video Editing</span>
-                            <h3 class="text-3xl font-display font-bold text-white">Cinematic Reveal Trailers</h3>
+                        <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+                            <span class="text-brand-pink text-xs md:text-sm font-bold uppercase tracking-widest mb-1 md:mb-2 block">Video & VFX</span>
+                            <h3 class="text-2xl md:text-3xl font-display font-bold text-white">Cinematic Reveal Trailers</h3>
                         </div>
                     </div>
                 </div>
@@ -826,20 +1004,23 @@
 
         <section id="page-about" class="page-section hidden pt-10 pb-32">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
                 
-                <h1 class="text-5xl md:text-7xl font-display font-black text-white mb-8">ABOUT <span class="text-brand-gold animated-gradient">SUPERNAYAK</span></h1>
-                <img src="IMG_20260530_130655-removebg-preview.png" class="h-40 mx-auto mb-10 drop-shadow-[0_0_30px_rgba(255,215,0,0.4)]" alt="SuperNayak">
+                <h1 class="text-4xl md:text-7xl font-display font-black text-white mb-8 leading-tight reveal-scale">ABOUT <span class="text-brand-gold animated-gradient">SUPERNAYAK</span></h1>
+                <img src="IMG_20260530_130655-removebg-preview.png" class="h-24 md:h-40 mx-auto mb-10 drop-shadow-[0_0_30px_rgba(255,215,0,0.4)] reveal-up delay-100" alt="SuperNayak">
                 
-                <div class="glass-panel p-12 rounded-3xl text-left border-l-4 border-brand-gold mb-12 shadow-[0_0_40px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                <div class="glass-panel p-6 md:p-12 rounded-3xl text-left border-l-4 border-brand-gold mb-12 shadow-[0_0_40px_rgba(0,0,0,0.5)] relative overflow-hidden reveal-up delay-200">
                     <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-purple rounded-full blur-3xl opacity-20"></div>
-                    <h2 class="text-3xl font-bold text-brand-gold mb-2">Founder / CEO</h2>
-                    <h3 class="text-4xl font-display font-bold text-white mb-8">Sahil Mandavkar</h3>
+                    <h2 class="text-xl md:text-3xl font-bold text-brand-gold mb-2">Founder / CEO</h2>
+                    <h3 class="text-3xl md:text-4xl font-display font-bold text-white mb-8">Sahil Mandavkar</h3>
                     
-                    <p class="text-slate-300 font-medium text-xl leading-relaxed mb-6">
+                    <p class="text-slate-300 font-medium text-base md:text-xl leading-relaxed mb-6">
                         Based in Thane, Maharashtra, India, SuperNayak Studio was built on a foundation of unyielding creativity and technical precision. What started as a passion for full-stack development, 3D modeling, and fast-cut video editing has evolved into a global powerhouse.
                     </p>
-                    <p class="text-slate-300 font-medium text-xl leading-relaxed mb-6">
+                    <p class="text-slate-300 font-medium text-base md:text-xl leading-relaxed mb-6">
+                        Wondering why we offer such a versatile range of services? We aren't just a jack-of-all-trades; we house a dedicated, highly skillful team where specialized experts focus intensely on their individual crafts. This synergy allows us to tackle everything in-house at a masterful level.
+                    </p>
+                    <p class="text-slate-300 font-medium text-base md:text-xl leading-relaxed mb-6">
                         We operate on dual fronts: as a premium service agency delivering cutting-edge web platforms, cinematic video edits, and interactive 3D assets to global clients, and as an indie game development studio crafting original titles like Krodh Room and Wari.
                     </p>
                 </div>
@@ -848,37 +1029,37 @@
 
         <section id="page-careers" class="page-section hidden pt-10 pb-32">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10"><i class="fas fa-arrow-left"></i> Back to Hub</button>
+                <button onclick="navigateTo('page-home')" class="btn-magnetic bg-white/5 text-slate-300 hover:text-white mb-12 px-6 py-2 rounded-full flex items-center gap-2 transition-colors border border-white/10 text-sm md:text-base"><i class="fas fa-arrow-left"></i> Back to Hub</button>
                 
-                <div class="text-center mb-16">
-                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Join the <span class="animated-gradient">SuperNayak</span> Core</h1>
-                    <p class="text-xl text-slate-300 max-w-2xl mx-auto font-medium">We are actively scouting visionary developers, artists, and strategists. If you want to build extraordinary things, apply below.</p>
+                <div class="text-center mb-12 md:mb-16 reveal-scale">
+                    <h1 class="font-display text-4xl md:text-7xl font-bold mb-6 text-white leading-tight">Join the <span class="animated-gradient">SuperNayak</span> Core</h1>
+                    <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-medium">We are actively scouting visionary developers, artists, and strategists. If you want to build extraordinary things, apply below.</p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="font-display text-3xl font-bold mb-8 text-white border-b border-white/10 pb-4">Open Roles</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                    <div class="reveal-left">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold mb-8 text-white border-b border-white/10 pb-4">Open Roles</h3>
                         
                         <div class="space-y-4">
-                            <div class="glass-panel p-6 hover:border-brand-cyan transition-colors cursor-pointer group shadow-lg">
-                                <div class="flex justify-between items-center mb-2">
-                                    <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Gameplay Programmer</h4>
+                            <div class="glass-panel p-5 md:p-6 hover:border-brand-cyan transition-colors cursor-pointer group shadow-lg">
+                                <div class="flex justify-between items-center mb-2 flex-wrap gap-2">
+                                    <h4 class="text-lg md:text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Gameplay Programmer</h4>
                                     <span class="text-xs bg-white/10 px-2 py-1 rounded text-brand-cyan font-bold">Remote / Thane</span>
                                 </div>
                                 <p class="text-sm text-slate-400">C# Unity expertise required.</p>
                             </div>
                             
-                            <div class="glass-panel p-6 hover:border-brand-purple transition-colors cursor-pointer group shadow-lg">
-                                <div class="flex justify-between items-center mb-2">
-                                    <h4 class="text-xl font-bold text-white group-hover:text-brand-purple transition-colors">UI/UX Web Developer</h4>
+                            <div class="glass-panel p-5 md:p-6 hover:border-brand-purple transition-colors cursor-pointer group shadow-lg">
+                                <div class="flex justify-between items-center mb-2 flex-wrap gap-2">
+                                    <h4 class="text-lg md:text-xl font-bold text-white group-hover:text-brand-purple transition-colors">UI/UX Web Developer</h4>
                                     <span class="text-xs bg-white/10 px-2 py-1 rounded text-brand-purple font-bold">Hybrid</span>
                                 </div>
                                 <p class="text-sm text-slate-400">React, Tailwind, GSAP skills needed.</p>
                             </div>
                             
-                            <div class="glass-panel p-6 hover:border-brand-pink transition-colors cursor-pointer group shadow-lg">
-                                <div class="flex justify-between items-center mb-2">
-                                    <h4 class="text-xl font-bold text-white group-hover:text-brand-pink transition-colors">3D Prop Artist</h4>
+                            <div class="glass-panel p-5 md:p-6 hover:border-brand-pink transition-colors cursor-pointer group shadow-lg">
+                                <div class="flex justify-between items-center mb-2 flex-wrap gap-2">
+                                    <h4 class="text-lg md:text-xl font-bold text-white group-hover:text-brand-pink transition-colors">3D Prop Artist</h4>
                                     <span class="text-xs bg-white/10 px-2 py-1 rounded text-brand-pink font-bold">Remote</span>
                                 </div>
                                 <p class="text-sm text-slate-400">Blender, Substance Painter workflow.</p>
@@ -886,23 +1067,23 @@
                         </div>
                     </div>
                     
-                    <div class="glass-panel p-10 border border-brand-cyan/20 relative overflow-hidden">
+                    <div class="glass-panel p-6 md:p-10 border border-brand-cyan/20 relative overflow-hidden reveal-right delay-100">
                          <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-cyan rounded-full blur-3xl opacity-10"></div>
-                        <h3 class="font-display text-2xl font-bold mb-6 text-white relative z-10">Submit Application</h3>
-                        <form class="space-y-5 relative z-10">
+                        <h3 class="font-display text-xl md:text-2xl font-bold mb-6 text-white relative z-10">Submit Application</h3>
+                        <form class="space-y-4 md:space-y-5 relative z-10">
                             <div>
                                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Full Name</label>
-                                <input type="text" class="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="e.g. John Doe">
+                                <input type="text" class="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-3 md:py-4 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="e.g. John Doe">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Portfolio Link (Crucial)</label>
-                                <input type="url" class="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="GitHub, ArtStation, etc.">
+                                <input type="url" class="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-3 md:py-4 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="GitHub, ArtStation, etc.">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Role & Pitch</label>
-                                <textarea rows="4" class="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="Why SuperNayak Studio?"></textarea>
+                                <textarea rows="4" class="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-3 md:py-4 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="Why SuperNayak Studio?"></textarea>
                             </div>
-                            <button type="button" class="w-full btn-magnetic btn-glow btn-pulse-glow text-white py-4 rounded-lg font-bold text-lg mt-2 shadow-lg shadow-cyan-500/20">
+                            <button type="button" class="w-full btn-magnetic btn-glow btn-pulse-glow text-white py-4 rounded-lg font-bold text-base md:text-lg mt-2 shadow-lg shadow-cyan-500/20">
                                 Launch Application <i class="fas fa-rocket ml-2"></i>
                             </button>
                         </form>
@@ -913,81 +1094,85 @@
 
     </main>
 
-    <footer id="contact-footer" class="relative bg-[#000] pt-32 pb-10 border-t border-white/10 overflow-hidden z-20">
+    <footer id="contact-footer" class="relative bg-[#000] pt-24 md:pt-32 pb-10 border-t border-white/10 overflow-hidden z-20">
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink opacity-50"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="glass-panel p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 mb-24 bg-gradient-to-r from-white/5 to-transparent border-l-4 border-l-brand-cyan shadow-[0_0_30px_rgba(6,182,212,0.1)]">
+            <div class="glass-panel p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 mb-16 md:mb-24 bg-gradient-to-r from-white/5 to-transparent border-l-4 border-l-brand-cyan shadow-[0_0_30px_rgba(6,182,212,0.1)] text-center md:text-left reveal-up">
                 <div>
-                    <h3 class="font-display text-3xl font-bold text-white mb-2">Trusted Global Track Record</h3>
-                    <p class="text-slate-400 max-w-2xl font-medium">Consistent Top-Rated 5-Star delivery on international platforms (including Fiverr) and independent enterprise contracts worldwide.</p>
+                    <h3 class="font-display text-2xl md:text-3xl font-bold text-white mb-2">Trusted Global Track Record</h3>
+                    <p class="text-slate-400 max-w-2xl font-medium text-sm md:text-base">Consistent Top-Rated 5-Star delivery on international platforms (including Fiverr) and independent enterprise contracts worldwide.</p>
                 </div>
-                <div class="flex gap-2 text-brand-gold text-3xl drop-shadow-[0_0_15px_rgba(255,215,0,0.6)]">
+                <div class="flex gap-1 md:gap-2 text-brand-gold text-2xl md:text-3xl drop-shadow-[0_0_15px_rgba(255,215,0,0.6)]">
                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
-                <div>
-                    <h2 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">Let's <span class="text-brand-pink animated-gradient">Connect</span></h2>
-                    <p class="text-slate-300 text-xl mb-12 font-medium">Global clients accepted. We accept multi-currency overseas payments, as well as UPI and Bank Transfers within India.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 mb-16">
+                <div class="reveal-left">
+                    <h2 class="font-display text-4xl md:text-7xl font-bold mb-4 md:mb-6 text-white leading-tight">Let's <span class="text-brand-pink animated-gradient">Connect</span></h2>
+                    <p class="text-slate-300 text-lg md:text-xl mb-10 md:mb-12 font-medium">Global clients accepted. We accept multi-currency overseas payments, as well as UPI and Bank Transfers within India.</p>
                     
-                    <div class="space-y-8">
-                        <div class="flex items-center gap-6 group cursor-default">
-                            <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-brand-cyan text-2xl group-hover:bg-brand-cyan group-hover:text-black transition-all shadow-lg">
+                    <div class="space-y-6 md:space-y-8">
+                        <div class="flex items-center gap-4 md:gap-6 group cursor-default">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/5 flex items-center justify-center text-brand-cyan text-xl md:text-2xl group-hover:bg-brand-cyan group-hover:text-black transition-all shadow-lg shrink-0">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-xl">Studio Base</h4>
-                                <p class="text-slate-400">Thane, Maharashtra, India</p>
+                                <h4 class="text-white font-bold text-lg md:text-xl">Studio Base</h4>
+                                <p class="text-slate-400 text-sm md:text-base">Thane, Maharashtra, India</p>
                             </div>
                         </div>
-                        <a href="tel:+917021850473" class="flex items-center gap-6 group cursor-pointer">
-                            <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-brand-purple text-2xl group-hover:bg-brand-purple group-hover:text-white transition-all shadow-lg">
+                        <a href="tel:+917021850473" class="flex items-center gap-4 md:gap-6 group cursor-pointer">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/5 flex items-center justify-center text-brand-purple text-xl md:text-2xl group-hover:bg-brand-purple group-hover:text-white transition-all shadow-lg shrink-0">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-xl">Direct Line</h4>
-                                <p class="text-slate-400">+91 7021850473</p>
+                                <h4 class="text-white font-bold text-lg md:text-xl">Direct Line</h4>
+                                <p class="text-slate-400 text-sm md:text-base">+91 7021850473</p>
                             </div>
                         </a>
-                        <a href="https://wa.me/917021850473" target="_blank" class="flex items-center gap-6 group cursor-pointer">
-                            <div class="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-500 text-3xl group-hover:bg-green-500 group-hover:text-black transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                        <a href="https://wa.me/917021850473" target="_blank" class="flex items-center gap-4 md:gap-6 group cursor-pointer">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-500 text-2xl md:text-3xl group-hover:bg-green-500 group-hover:text-black transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)] shrink-0">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-xl">WhatsApp Us</h4>
-                                <p class="text-slate-400">Discuss Your Project Instantly</p>
+                                <h4 class="text-white font-bold text-lg md:text-xl">WhatsApp Us</h4>
+                                <p class="text-slate-400 text-sm md:text-base">Discuss Your Project Instantly</p>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <div class="glass-panel p-10 relative border border-white/10 hover:border-brand-pink/30 transition-colors">
-                    <form>
-                        <div class="grid grid-cols-2 gap-6 mb-6">
+                <div class="glass-panel p-6 md:p-10 relative border border-white/10 hover:border-brand-pink/30 transition-colors reveal-right delay-100">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="f30d2df5-e2c9-4afb-9cf0-1b95b38d42f7">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
                             <div>
-                                <input type="text" class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors placeholder-slate-500" placeholder="Your Name">
+                                <input type="text" name="client_name" required class="w-full bg-black border-b border-white/20 px-2 py-3 md:py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors placeholder-slate-500" placeholder="Your Name">
                             </div>
                             <div>
-                                <input type="email" class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors placeholder-slate-500" placeholder="Email Address">
+                                <input type="email" name="client_email" required class="w-full bg-black border-b border-white/20 px-2 py-3 md:py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors placeholder-slate-500" placeholder="Email Address">
                             </div>
                         </div>
                         <div class="mb-6 relative">
-                            <select class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors appearance-none cursor-pointer">
+                            <select name="service_requested" required class="w-full bg-black border-b border-white/20 px-2 py-3 md:py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors appearance-none cursor-pointer text-sm md:text-base">
                                 <option value="" disabled selected>Select Service Needed...</option>
+                                <option>Full Game Design & Dev</option>
                                 <option>Web Design & Dev</option>
-                                <option>2D/3D Art & Skins</option>
-                                <option>Video Editing</option>
+                                <option>2D Art & Graphic Design</option>
+                                <option>3D Art & Assets</option>
+                                <option>Video Editing & VFX</option>
                                 <option>Social Media Management</option>
-                                <option>Voiceover</option>
+                                <option>Performing Artists</option>
                                 <option>Game Testing & QA</option>
                             </select>
                             <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"></i>
                         </div>
                         
                         <div class="mb-6 relative">
-                            <select class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors appearance-none cursor-pointer">
+                            <select name="project_budget" required class="w-full bg-black border-b border-white/20 px-2 py-3 md:py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors appearance-none cursor-pointer text-sm md:text-base">
                                 <option value="" disabled selected>Select Budget Scope...</option>
                                 <option>$50 - $100</option>
                                 <option>$100 - $500</option>
@@ -998,30 +1183,32 @@
                             <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"></i>
                         </div>
 
-                        <div class="mb-10">
-                            <textarea rows="4" class="w-full bg-black border-b border-white/20 px-2 py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors placeholder-slate-500" placeholder="Project Details & Scope..."></textarea>
+                        <div class="mb-8 md:mb-10">
+                            <textarea rows="4" name="project_details" required class="w-full bg-black border-b border-white/20 px-2 py-3 md:py-4 text-white font-bold focus:outline-none focus:border-brand-pink transition-colors placeholder-slate-500 text-sm md:text-base" placeholder="Project Details & Scope..."></textarea>
                         </div>
-                        <button type="button" class="btn-magnetic btn-glow btn-pulse-glow text-white px-10 py-5 rounded-lg font-bold w-full text-lg shadow-lg">
+                        <button type="submit" class="btn-magnetic btn-glow btn-pulse-glow text-white px-8 md:px-10 py-4 md:py-5 rounded-lg font-bold w-full text-base md:text-lg shadow-lg">
                             Initialize Project <i class="fas fa-paper-plane ml-2"></i>
                         </button>
                     </form>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-white/10 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-white/10 mb-8 reveal-up">
                 <div>
                     <h4 class="text-white font-bold mb-4 text-xl">Quick Links</h4>
-                    <ul class="space-y-2 text-slate-400 font-medium">
-                        <li><a href="#" onclick="navigateTo('page-home')" class="hover:text-brand-cyan transition-colors">Home</a></li>
-                        <li><a href="#" onclick="navigateTo('page-about')" class="hover:text-brand-cyan transition-colors">About Us</a></li>
-                        <li><a href="#" onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})" class="hover:text-brand-cyan transition-colors">Services</a></li>
-                        <li><a href="#" onclick="navigateTo('page-portfolio')" class="hover:text-brand-cyan transition-colors">Portfolio</a></li>
-                        <li><a href="#" onclick="navigateTo('page-careers')" class="hover:text-brand-cyan transition-colors">Careers</a></li>
+                    <ul class="space-y-2 text-slate-400 font-medium text-sm md:text-base">
+                        <li><a href="#page-home" onclick="navigateTo('page-home')" class="hover:text-brand-purple transition-colors">Home</a></li>
+                        <li><a href="#page-about" onclick="navigateTo('page-about')" class="hover:text-brand-purple transition-colors">About Us</a></li>
+                        <li><a href="#services-grid" onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})" class="hover:text-brand-purple transition-colors">Services</a></li>
+                        <li><a href="#page-portfolio" onclick="navigateTo('page-portfolio')" class="hover:text-brand-purple transition-colors">Portfolio</a></li>
+                        <li><a href="#page-careers" onclick="navigateTo('page-careers')" class="hover:text-brand-purple transition-colors">Careers</a></li>
                     </ul>
                 </div>
-                <div class="md:col-span-2">
-                    <h4 class="text-white font-bold mb-4 text-xl">Connect With Us</h4>
-                    <div class="flex flex-wrap gap-4 text-3xl text-slate-400">
+                <div class="md:col-span-2 flex flex-col md:items-end justify-center">
+                    <h4 class="text-white font-bold mb-2 text-xl md:text-right">Connect With Us</h4>
+                    <a href="mailto:supernayakstudio@gmail.com" class="text-brand-cyan hover:text-white transition-colors text-sm mb-4 font-bold tracking-wider md:text-right">supernayakstudio@gmail.com</a>
+                    
+                    <div class="flex flex-wrap gap-4 text-2xl md:text-3xl text-slate-400 md:justify-end w-full">
                         <a href="https://youtube.com/@SuperNayakStudio" target="_blank" class="hover:text-[#FF0000] transition transform hover:scale-110"><i class="fab fa-youtube"></i></a>
                         <a href="https://instagram.com/supernayakstudio" target="_blank" class="hover:text-[#E1306C] transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
                         <a href="https://discord.gg/D4cqVDfDhX" target="_blank" class="hover:text-[#5865F2] transition transform hover:scale-110"><i class="fab fa-discord"></i></a>
@@ -1038,18 +1225,89 @@
             </div>
 
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 gap-4">
-                <div class="text-2xl font-display font-bold flex items-center">
-                    <img src="IMG_20260530_130655-removebg-preview.png" alt="Logo" class="h-8 w-auto mr-2"> 
-                    SN <span class="text-brand-cyan text-sm align-middle ml-2">© 2026</span>
+                <div class="text-xl md:text-2xl font-display font-bold flex items-center">
+                    <img src="IMG_20260530_130655-removebg-preview.png" alt="Logo" class="h-6 md:h-8 w-auto mr-2"> 
+                    SuperNayak <span class="text-brand-cyan text-xs md:text-sm align-middle ml-2">© 2026</span>
                 </div>
                 
-                <p class="text-slate-500 font-bold tracking-widest text-xs uppercase text-center">Developed with ❤️ by SuperNayak Community</p>
+                <p class="text-slate-500 font-bold tracking-widest text-[10px] md:text-xs uppercase text-center">Developed with ❤️ by SuperNayak Community</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // --- SPA Navigation Logic (Rock Solid Stability) ---
+        // --- Mobile Menu Logic ---
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileCloseBtn = document.getElementById('mobile-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => mobileMenu.classList.add('menu-active'), 10);
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('menu-active');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+        
+        if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMobileMenu);
+
+        // --- Scroll Reveal Observer ---
+        const initScrollReveal = () => {
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => revealObserver.observe(el));
+        };
+        
+        // --- Hero Icons Entry & Float Logic ---
+        function initHeroIcons() {
+            gsap.killTweensOf('.hero-bg-icon');
+            gsap.fromTo('.hero-bg-icon',
+                { 
+                    opacity: 0, 
+                    scale: 0, 
+                    rotation: -180
+                },
+                { 
+                    opacity: 0.6, 
+                    scale: 1, 
+                    rotation: 0,
+                    duration: 1.5, 
+                    stagger: 0.1, 
+                    ease: "back.out(1.5)",
+                    onComplete: function() {
+                        gsap.to('.hero-bg-icon', {
+                            y: "random(-15, 15)",
+                            x: "random(-15, 15)",
+                            rotation: "random(-10, 10)",
+                            duration: "random(4, 7)",
+                            repeat: -1,
+                            yoyo: true,
+                            ease: "sine.inOut"
+                        });
+                    }
+                }
+            );
+        }
+        
+        // Init on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initHeroIcons();
+            initScrollReveal();
+        });
+
+        // --- SPA Navigation & Dynamic Updates ---
         function navigateTo(pageId) {
             const pages = document.querySelectorAll('.page-section');
             
@@ -1059,16 +1317,52 @@
                         page.classList.remove('active');
                         page.classList.add('hidden');
                         
+                        // Clear active states on reveal elements so they trigger again
+                        document.querySelectorAll('.reveal-up.active, .reveal-scale.active, .reveal-left.active, .reveal-right.active').forEach(el => el.classList.remove('active'));
+
                         // Show new
                         const target = document.getElementById(pageId);
                         if(target) {
                             target.classList.remove('hidden');
                             target.classList.add('active');
                             gsap.fromTo(target, {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 0.5, ease: "power2.out"});
+                            
+                            // Trigger Service Page Specific Background Icon Animation
+                            const serviceIcon = target.querySelector('.service-bg-icon');
+                            if(serviceIcon) {
+                                gsap.killTweensOf(serviceIcon);
+                                gsap.fromTo(serviceIcon, 
+                                    { x: 300, opacity: 0 }, 
+                                    { x: 0, opacity: 0.15, duration: 1.2, ease: "power3.out", delay: 0.2,
+                                      onComplete: () => {
+                                          gsap.to(serviceIcon, { y: -30, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" });
+                                      }
+                                    }
+                                );
+                            }
+                            
+                            // Re-trigger hero animation if going back to home
+                            if(pageId === 'page-home') {
+                                initHeroIcons();
+                            }
                         }
-                        // Scroll to top instantly on page change (accounting for fixed header)
+                        // Scroll to top instantly
                         window.scrollTo({ top: 0, behavior: 'instant' });
                     }});
+                }
+            });
+            
+            // Update Active Nav Link Colors
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const targetData = link.getAttribute('data-target');
+                if(targetData) {
+                    if(targetData === pageId) {
+                        link.classList.remove('text-slate-200');
+                        link.classList.add('text-brand-purple', 'active-nav');
+                    } else {
+                        link.classList.remove('text-brand-purple', 'active-nav');
+                        link.classList.add('text-slate-200');
+                    }
                 }
             });
         }
@@ -1088,7 +1382,6 @@
                 
                 const percentage = (x / rect.width) * 100;
                 
-                // Animate timeline width
                 gsap.to(lineGlow, { width: `${percentage}%`, duration: 0.4, ease: "power2.out" });
                 
                 steps.forEach((step, index) => {
@@ -1104,29 +1397,37 @@
                 });
             }
 
-            // Mouse support
             timeline.addEventListener('mousemove', (e) => handleMovement(e.clientX));
             timeline.addEventListener('mouseleave', () => {
                 gsap.to(lineGlow, { width: `0%`, duration: 1, ease: "power3.out" });
                 steps.forEach(step => step.classList.remove('glow-active'));
             });
 
-            // Touch support for Mobile
             timeline.addEventListener('touchmove', (e) => {
                 handleMovement(e.touches[0].clientX);
             }, {passive: true});
         }
 
-        // --- Navbar Scroll Effect ---
+        // --- Window Scroll Effects ---
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+            const scrollY = window.scrollY;
+            
+            // Navbar Glass Effect
+            if (scrollY > 50) {
                 navbar.classList.add('bg-[#0a0a12]/95', 'shadow-2xl', 'backdrop-blur-md');
                 navbar.classList.remove('border-transparent');
             } else {
                 navbar.classList.remove('bg-[#0a0a12]/95', 'shadow-2xl', 'backdrop-blur-md');
-                navbar.classList.add('border-transparent');
+                navbar.classList.add('bsorder-transparent');
             }
+            
+            // Service Background Icon Blur Effect
+            const serviceIcons = document.querySelectorAll('.service-bg-icon');
+            serviceIcons.forEach(icon => {
+                const blurValue = Math.min(scrollY / 30, 20); 
+                icon.style.filter = `blur(${blurValue}px)`;
+            });
         });
     </script>
 </body>
